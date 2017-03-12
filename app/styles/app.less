@@ -1,0 +1,134 @@
+@import "GLAZE.less";
+@import "geomanist.less";
+@dv-f-lato: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+@dv-f-geomanist: "Geomanist", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+.no-pad {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+html {
+    background-color: @dv-c-background;
+}
+
+
+body {
+    font-family: @dv-f-lato;
+    font-size: 14px;
+    color: @dv-c-body;
+    width: 100%;
+    height: 100%;
+    .no-pad;
+    .no-margin;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+a {
+    text-decoration: none;
+    color: @dv-c-accent-1;
+    font-weight: bold;
+    &:hover {
+        color: @dv-c-accent-2;
+    }
+}
+
+h1 {
+    font-family: @dv-f-geomanist;
+    color: @dv-c-foreground;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 32px;
+    .no-pad;
+    .no-margin;
+}
+
+h2 {
+    font-family: @dv-f-geomanist;
+    color: @dv-c-foreground;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 24px;
+    .no-pad;
+    .no-margin;
+}
+
+h3 {
+    font-family: @dv-f-lato;
+    font-weight: bold;
+    color: @dv-c-accent-2;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-size: 18px;
+    .no-pad;
+    .no-margin;
+}
+
+h4 {
+    font-family: @dv-f-lato;
+    font-weight: 500;
+    color: @dv-c-accent-2;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-size: 16px;
+    .no-pad;
+    .no-margin;
+}
+
+
+.fade-in(@duration) {
+    -webkit-animation: fadein @duration;
+    -moz-animation: fadein @duration;
+    -ms-animation: fadein @duration;
+    -o-animation: fadein @duration;
+    animation: fadein @duration;
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @-moz-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @-webkit-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @-ms-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @-o-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+}
+
+.bg-img {
+    z-index: -30;
+    background-image: url("https://static.divinitor.com/site/common/img/dv-masthead-bg-static-merged.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 62.5% 70%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-color: @dv-c-background;
+    .fade-in(1s);
+}
