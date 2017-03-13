@@ -11,9 +11,11 @@
             <ul>
             {{#each model as |card|}}
                 <li class="card-list-entry">
+                    <div {{action "loadCard" card.id}}>
                     <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/{{card.characterClassId}}.png" />
                     <h1>{{card.characterName}}</h1>
                     <h2>{{card.remark}}</h2>
+                    </div>
                 </li>
             {{/each}}
                 <li>

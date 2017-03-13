@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    onCardCreated(newCard)
+    navigateToCard(newCard)
     {
         this.transitionToRoute('cards.card', newCard);
     },
@@ -17,7 +17,12 @@ export default Ember.Controller.extend({
                 characterClassId: "none"
             });
             newCard.save();
-            this.onCardCreated(newCard);
+            this.navigateToCard(newCard);
+        },
+        loadCard(id)
+        {
+            let newCard = this.get('store').findRecord('statcard', id);
+            this.navigateToCard(newCard);
         }
     }
 });
