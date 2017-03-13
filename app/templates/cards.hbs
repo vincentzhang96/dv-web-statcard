@@ -1,1 +1,7 @@
+{{#if model}}
+    <h1>Cards</h1>
+    {{#each model as |card|}}
+        <p>{{card.id}}</p>
+    {{/each}}
+{{/if}}
 {{outlet}}

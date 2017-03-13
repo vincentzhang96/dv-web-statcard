@@ -1,5 +1,25 @@
-{{#each cards as |card|}}
-
-{{else}}
-    {{no-cards}}
-{{/each}}
+{{#unless model}}
+<div class="dialog-container">
+    <div class="accent-box top"></div>
+    <div class="container-body">
+        <div class="content">
+            <h1>
+                No cards found
+            </h1>
+            <h2>
+                You haven&apos;t created any cards yet.
+            </h2>
+            <p>
+                Get started by <a href="#" {{action "createCard"}}>creating a new card</a> 
+                or {{#link-to "cards.import"}}importing existing cards{{/link-to}}.
+            </p>
+            <p>
+                Please note that all cards are stored in your local browser storage. 
+                You must export your cards to transfer them. 
+                <strong>Clearing your browser storage/cache will remove all cards.</strong>
+            </p>
+        </div>
+    </div>
+    <div class="accent-box bottom"></div>
+</div>
+{{/unless}}

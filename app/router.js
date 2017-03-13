@@ -8,10 +8,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('cards', function() {
-    this.route('new');
     this.route('import');
+    this.route('card', { path: '/:card_id' });
   });
-  this.route('card', { path: '/card/:card_id' });
 });
 
 export default Router;

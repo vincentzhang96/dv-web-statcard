@@ -1,9 +1,9 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    characterName: DS.attr('string'),
-    remark: DS.attr('string'),
-    characterClassId: DS.attr('string'),
+    characterName: DS.attr('string', { defaultValue: 'New character' }),
+    remark: DS.attr('string', { defaultValue: '' }),
+    characterClassId: DS.attr('string', { defaultValue: 'none' }),
     level: DS.attr('number', { defaultValue: 93 }),
     lastUpdated: DS.attr('date', 
     {
@@ -13,24 +13,24 @@ export default DS.Model.extend({
             return new Date();
         }
     }),
-    statHp: DS.attr('number'),
-    statMana: DS.attr('number'),
-    statStr: DS.attr('number'),
-    statAgi: DS.attr('number'),
-    statInt: DS.attr('number'),
-    statVit: DS.attr('number'),
-    statPDmgMin: DS.attr('number'),
-    statPDmgMax: DS.attr('number'),
-    statMDmgMin: DS.attr('number'),
-    statMDmgMax: DS.attr('number'),
-    statPDef: DS.attr('number'),
-    statMDef: DS.attr('number'),
-    statCrit: DS.attr('number'),
-    statCritDmg: DS.attr('number'),
-    statFire: DS.attr('number'),
-    statIce: DS.attr('number'),
-    statLight: DS.attr('number'),
-    statDark: DS.attr('number'),
-    statFD: DS.attr('number'),
-    statHeroLevel: DS.attr('number')
+    statHp: DS.attr('number', { defaultValue: 0 }),
+    statMana: DS.attr('number', { defaultValue: 0 }),
+    statStr: DS.attr('number', { defaultValue: 0 }),
+    statAgi: DS.attr('number', { defaultValue: 0 }),
+    statInt: DS.attr('number', { defaultValue: 0 }),
+    statVit: DS.attr('number', { defaultValue: 0 }),
+    statPDmgMin: DS.attr('number', { defaultValue: 0 }),
+    statPDmgMax: DS.attr('number', { defaultValue: 0 }),
+    statMDmgMin: DS.attr('number', { defaultValue: 0 }),
+    statMDmgMax: DS.attr('number', { defaultValue: 0 }),
+    statPDef: DS.attr('number', { defaultValue: 0 }),
+    statMDef: DS.attr('number', { defaultValue: 0 }),
+    statCrit: DS.attr('number', { defaultValue: 0 }),
+    statCritDmg: DS.attr('number', { defaultValue: 0 }),
+    statFire: DS.attr('number', { defaultValue: 0 }),
+    statIce: DS.attr('number', { defaultValue: 0 }),
+    statLight: DS.attr('number', { defaultValue: 0 }),
+    statDark: DS.attr('number', { defaultValue: 0 }),
+    statFD: DS.attr('number', { defaultValue: 0 }),
+    statHeroLevel: DS.attr('number', { defaultValue: 0 })
 });
