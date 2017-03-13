@@ -1,7 +1,30 @@
-{{#if model}}
-    <h1>Cards</h1>
-    {{#each model as |card|}}
-        <p>{{card.id}}</p>
-    {{/each}}
-{{/if}}
-{{outlet}}
+<div class="narrow-warning">
+    <p>YOUR SCREEN MUST BE AT LEAST 1000 PX WIDE TO USE THIS TOOL</p>
+</div>
+
+<div class="statcard-view">
+    {{#if model}}
+        <div class="card-list-panel">
+            <div class="header">
+                <p>Statcards</p>
+            </div>
+            <ul>
+            {{#each model as |card|}}
+                <li class="card-list-entry">
+                    <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/{{card.characterClassId}}.png" />
+                    <h1>{{card.characterName}}</h1>
+                    <h2>{{card.remark}}</h2>
+                </li>
+            {{/each}}
+                <li>
+                    <a href="#"  {{action "createCard"}}>
+                        <div class="add-card-entry">
+                            Add new card
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    {{/if}}
+    {{outlet}}
+</div>
