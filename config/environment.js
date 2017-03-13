@@ -43,8 +43,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.rootURL = '/tool-store/prod/dv-web-statcard/0.1.1-LAB';
+    ENV.locationType = 'hash';
   }
-
   return ENV;
 };
