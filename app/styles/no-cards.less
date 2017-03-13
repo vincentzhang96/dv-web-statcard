@@ -1,0 +1,76 @@
+.dialog-container {
+    @dialog-width: 450px;
+    @dialog-height: 150px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: @dialog-width;
+    height: @dialog-height;
+    margin: -(@dialog-height / 2) 0 0 -(@dialog-width / 2);
+
+    .container-body {
+        background-color: @dv-c-background;
+        background-color: rgba(18, 19, 20, 0.9);
+        border-color: @dv-c-body;
+        border-style: solid;
+        border-width: 2px;
+        width: @dialog-width;
+        height: @dialog-height - 10px;
+        overflow: hidden;
+    }
+
+    .container-body .content {
+        padding: 20px 20px;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+        font-family: @dv-f-geomanist;
+        font-size: 24px;
+        text-transform: uppercase;
+        color: @dv-c-foreground;
+        font-weight: normal;
+        letter-spacing: 0.1em;
+    }
+    
+    h2 {
+        margin: 4px 0 18px 0;
+        padding: 0;
+        font-family: @dv-f-geomanist;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #646a6e;
+        font-weight: normal;
+        letter-spacing: 0.1em;
+    }
+
+    p {
+        color: @dv-c-body;
+        text-align: center;
+        margin: 2px 0;
+        padding: 0;
+        font-family: @dv-f-lato;
+        font-size: 14px;
+    }
+
+    .accent-box {
+        background-color: @dv-c-background;
+        background-color: rgba(18, 19, 20, 0.75);
+        border-color: @dv-c-body;
+        border-style: solid;
+        width: @dialog-width - 70px;
+        height: 3px;
+        padding: 0;
+        margin: auto;
+    }
+
+    .accent-box.top {
+        border-width: 1px 1px 0 1px;
+    }
+
+    .accent-box.bottom {
+        border-width: 0 1px 1px 1px;
+    }
+}
