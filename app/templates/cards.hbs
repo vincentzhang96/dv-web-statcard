@@ -8,16 +8,20 @@
             <div class="header">
                 <p>Statcards</p>
             </div>
+            <div class="card-list-scroller">
+                <ul>
+                {{#each model as |card|}}
+                    {{#link-to "cards.card" card}}
+                    <li class="card-list-entry">
+                        <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/{{card.characterClassId}}.png" />
+                        <h1>{{card.characterName}}</h1>
+                        <h2>{{card.remark}}</h2>
+                    </li>
+                    {{/link-to}}
+                {{/each}}
+                </ul>
+            </div>
             <ul>
-            {{#each model as |card|}}
-                <li class="card-list-entry">
-                    <div {{action "loadCard" card.id}}>
-                    <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/{{card.characterClassId}}.png" />
-                    <h1>{{card.characterName}}</h1>
-                    <h2>{{card.remark}}</h2>
-                    </div>
-                </li>
-            {{/each}}
                 <li>
                     <a href="#"  {{action "createCard"}}>
                         <div class="add-card-entry">

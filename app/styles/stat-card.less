@@ -29,6 +29,7 @@
 @dv-c-muted-separator: #35383a;
 
 .statcard-view {
+    cursor: default;
     width: 1000px;
     height: 500px;
     position: absolute;
@@ -59,6 +60,7 @@
     }
 
     .stat-card-tools {
+        .no-select;
         position: absolute;
         top: 0;
         left: 0;
@@ -79,12 +81,20 @@
     }
 
     .card-list-panel {
+        .no-select;
         position: absolute;
         top: 90px;
         left: 0;
         width: 200px;
         overflow: hidden;
         .idle-fade;
+
+        .card-list-scroller {
+            width: 220px;
+            max-height: 304px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
 
         ul {
             list-style: none;
@@ -98,6 +108,7 @@
                 border-width: 0 0 0 4px;
                 border-style: solid;
                 border-color: @dv-c-idle;
+                transition: border-color 0.125s ease-out;
                 user-select: none;
                 cursor: pointer;
                 text-transform: uppercase;
@@ -111,6 +122,7 @@
                     height: 26px;
                     float: left;
                     padding: 7px;
+                    filter: saturate(0%);
                 }
                 h1 {
                     color: @dv-c-body;
@@ -119,12 +131,28 @@
                     letter-spacing: 0;
                     font-weight: normal;
                     text-overflow: ellipsis;
+                    transition: color 0.25s ease-out;
                 }
                 h2 {
                     color: @dv-c-disabled;
                     font-size: 12px;
                     letter-spacing: 0;
                     font-weight: normal;
+                    transition: color 0.125s ease-out;
+                }
+            }
+
+            .active > li {
+                border-color: #5aa9e5;
+                background: none;
+                h1 {
+                    color: @dv-c-foreground;
+                }
+                h2 {
+                    color: @dv-c-accent-1;
+                }
+                .class-icon {
+                    filter: saturate(100%);
                 }
             }
 
