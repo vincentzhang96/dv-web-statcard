@@ -78,6 +78,18 @@
         height: 500px;
         background-color: @dv-c-background;
         overflow: hidden;
+
+        .content {
+            padding: 20px;
+
+            .class-icon {
+                width: 60px;
+                height: 60px;
+                transform: translate(0, -5px);
+                float: left;
+                margin-right: 10px;
+            }
+        }
     }
 
     .card-list-panel {
@@ -108,13 +120,18 @@
                 border-width: 0 0 0 4px;
                 border-style: solid;
                 border-color: @dv-c-idle;
-                transition: border-color 0.125s ease-out;
+                transition: border-color 0.25s ease-out;
                 user-select: none;
                 cursor: pointer;
                 text-transform: uppercase;
                 background: linear-gradient(to right, #09090a 0%,#09090a 95%,#040404 100%);
                 &:hover {
                     .idle-fade;
+
+                    .class-icon {
+                        filter: saturate(50%);
+                        opacity: 0.75;
+                    }
                 }
 
                 .class-icon {
@@ -123,6 +140,8 @@
                     float: left;
                     padding: 7px;
                     filter: saturate(0%);
+                    opacity: 0.5;
+                    transition: opacity 0.25s linear;
                 }
                 h1 {
                     color: @dv-c-body;
@@ -131,19 +150,23 @@
                     letter-spacing: 0;
                     font-weight: normal;
                     text-overflow: ellipsis;
-                    transition: color 0.25s ease-out;
+                    transition: color 0.25s linear;
                 }
                 h2 {
                     color: @dv-c-disabled;
                     font-size: 12px;
                     letter-spacing: 0;
                     font-weight: normal;
-                    transition: color 0.125s ease-out;
+                    transition: color 0.125s linear;
+                }
+
+                &:hover {                    
+                    border-color: @dv-c-accent-2;
                 }
             }
 
             .active > li {
-                border-color: #5aa9e5;
+                border-color: @dv-c-accent-2;
                 background: none;
                 h1 {
                     color: @dv-c-foreground;
@@ -153,6 +176,7 @@
                 }
                 .class-icon {
                     filter: saturate(100%);
+                    opacity: 1.0;
                 }
             }
 

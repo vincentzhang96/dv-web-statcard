@@ -4,6 +4,11 @@
     </div>
 </div>
 <div class="stat-card">
-    <h1>Test {{model.characterName}} {{model.id}}</h1>
-
+    <div class="content">
+        <div class="header-box">
+            <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/blue/{{model.characterClassId}}.png" />
+            <h1>{{model.characterName}}</h1>
+            <h2>L{{model.level}} {{format-class model.characterClassId}}</h2>
+        </div>
+    </div>
 </div>
