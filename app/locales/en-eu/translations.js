@@ -1,16 +1,16 @@
 export default {
-
+    
     "classes":
     {
         "ar_acrobat_tempest": "Tempest",
         "ar_acrobat_windwalker": "Windwalker",
         "ar_hunter_silverhunter": "Silver Hunter",
         "ar_sharpshooter_sniper": "Sniper",
-        "ar_sharpshooter_warden": "Warden",
+        "ar_sharpshooter_warden": "Sentinel",
         "as_shinobi_raven": "Raven",
-        "as_shinobi_reaper": "Reaper",
+        "as_shinobi_reaper": "Ripper",
         "as_taoist_abysswalker": "Abyss Walker",
-        "as_taoist_lightbringer": "Light Bringer",
+        "as_taoist_lightbringer": "Light Fury",
         "cl_heretic_archheretic": "Arch Heretic",
         "cl_paladin_crusader": "Crusader",
         "cl_paladin_guardian": "Guardian",
@@ -20,14 +20,14 @@ export default {
         "ka_dancer_spiritdancer": "Spirit Dancer",
         "ka_screamer_darksummoner": "Dark Summoner",
         "ka_screamer_souleater": "Soul Eater",
-        "le_lancer_dragoon": "Dragoon",
+        "le_lancer_dragoon": "Boadicea",
         "le_lancer_valkyrie": "Valkyrie",
         "ma_patrona_defensio": "Defensio",
         "ma_patrona_ruina": "Ruina",
-        "so_elementalist_icewitch": "Ice Witch",
-        "so_elementalist_pyromancer": "Pyromancer",
-        "so_mystic_chaosmage": "Chaos Mage",
-        "so_mystic_warmage": "War Mage",
+        "so_elementalist_icewitch": "Glaciana",
+        "so_elementalist_pyromancer": "Saleana",
+        "so_mystic_chaosmage": "Obscuria",
+        "so_mystic_warmage": "Illumia",
         "ti_alchemist_adept": "Adept",
         "ti_alchemist_physician": "Physician",
         "ti_engineer_gearmaster": "Gear Master",
@@ -36,7 +36,7 @@ export default {
         "wa_mercenary_barbarian": "Barbarian",
         "wa_mercenary_destroyer": "Destroyer",
         "wa_swordsman_gladiator": "Gladiator",
-        "wa_swordsman_lunarknight": "Lunar Knight"
+        "wa_swordsman_lunarknight": "Moon Lord"
     },
     "stats": 
     {
@@ -59,7 +59,7 @@ export default {
         "fd": "FD",
         "hero": "Hero Lvl"
     },
-
+    
     "ui":
     {
         "lang":
