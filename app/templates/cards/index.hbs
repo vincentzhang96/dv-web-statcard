@@ -4,19 +4,19 @@
     <div class="container-body">
         <div class="content">
             <h1>
-                No cards found
+                {{t "ui.cards.no-cards.title"}}
             </h1>
             <h2>
-                You haven&apos;t created any cards yet.
+                {{t "ui.cards.no-cards.subtitle"}}
             </h2>
             <p>
-                Get started by <a href="#" {{action "createCard"}}>creating a new card</a> 
-                or {{#link-to "cards.import"}}importing existing cards{{/link-to}}.
+                {{t "ui.cards.no-cards.body-1"}}
+                <a href="#" {{action "createCard"}}>{{t "ui.cards.no-cards.body-create"}}</a>
+                {{t "ui.cards.no-cards.body-2"}}
+                {{#link-to "cards.import"}}{{t "ui.cards.no-cards.body-import"}}{{/link-to}}
             </p>
             <p>
-                Please note that all cards are stored in your local browser storage. 
-                You must export your cards to transfer them. 
-                <strong>Clearing your browser storage/cache will remove all cards.</strong>
+                {{t "ui.cards.no-cards.warning"}}
             </p>
         </div>
     </div>

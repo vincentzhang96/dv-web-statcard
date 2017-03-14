@@ -1,6 +1,6 @@
 <div class="stat-card-tools">
     <div class="header">
-        <p>Tools</p>
+        <p>{{t "ui.cards.card.tools"}}</p>
     </div>
     <div class="tool-list">
         {{delete-card-button card=model onConfirm=(action "reallyDeleteCard")}}
@@ -14,5 +14,5 @@
             <h2>L{{model.level}} {{format-class model.characterClassId}}</h2>
         </div>
     </div>
-    <p class="footer-tip">[TODO THIS DOESN&apos;T WORK YET] Click on an item to edit its value</p>
+    <p class="footer-tip">{{t "ui.cards.card.footer-tip"}}</p>
 </div>

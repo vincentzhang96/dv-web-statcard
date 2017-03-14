@@ -64,8 +64,31 @@ export default {
     {
         "cards":
         {
-            "minsize": "YOUR SCREEN MUST BE AT LEAST 1000 PX WIDE TO USE THIS TOOL"
-
+            "minsize": "YOUR SCREEN MUST BE AT LEAST 1000 PX WIDE TO USE THIS TOOL",
+            "statcards": "Statcards",
+            "create-card": "Add new card",
+            "no-cards":
+            {
+                "title": "No cards found",
+                "subtitle": "You haven't created any cards yet.",
+                "body-1": "Get started by",
+                "body-create": "creating a new card",
+                "body-2": "or",
+                "body-import": "importing existing cards.",
+                "warning": "Please note that all cards are stored in your local browser storage. You must export your cards to transfer them. <strong>Clearing your browser storage/cache will remove all cards.</strong>",
+            },
+            "card": {
+                "tools": "Tools",
+                "footer-tip": "[TODO THIS DOESN'T WORK YET] Click on an item to edit its value",
+                "delete-card": {
+                    "title": "Delete Card",
+                    "subtitle": "Are you sure?",
+                    "body-1": "You are about to delete",
+                    "body-2": "Once deleted, this card is forever lost (like your enhancing gold).",
+                    "delete-card": "Delete Card",
+                    "keep-card": "Keep Card",
+                },
+            },
         }
     }
 
