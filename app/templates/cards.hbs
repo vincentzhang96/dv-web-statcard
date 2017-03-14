@@ -1,5 +1,5 @@
 <div class="narrow-warning">
-    <p>YOUR SCREEN MUST BE AT LEAST 1000 PX WIDE TO USE THIS TOOL</p>
+    <p>{{t ui.cards.minsize}}</p>
 </div>
 
 <div class="statcard-view">
@@ -22,13 +22,13 @@
                 </ul>
             </div>
             <ul>
-                <li>
-                    <a href="#"  {{action "createCard"}}>
-                        <div class="add-card-entry">
-                            Add new card
-                        </div>
-                    </a>
-                </li>
+                <a href="#" {{action "createCard"}}>
+                    <li>
+                            <div class="add-card-entry">
+                                Add new card
+                            </div>
+                    </li>
+                </a>
             </ul>
         </div>
     {{/if}}

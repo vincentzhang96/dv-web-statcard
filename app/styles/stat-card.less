@@ -66,8 +66,66 @@
         left: 0;
         width: 200px;
         height: 80px;
-        overflow: hidden;
         .idle-fade;
+
+        .tool-list {
+            text-align: center;
+
+            .toolbutton {
+                border: none;
+                background: none;
+                color: @dv-c-body;
+                .no-pad;
+                
+                &:hover {
+                    color: @dv-c-accent-2;
+                }
+            }
+        }
+        
+        .dialog-dimmer {
+            z-index: 40;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .confirm-dialog {
+            text-align: left;
+            position: fixed;
+            z-index: 50;
+
+            h2 {
+                margin: 4px 0 8px 0;
+            }
+
+            .button-hbox {
+                position: absolute;
+                bottom: -12px;
+                left: 0;
+                right: 0;
+                text-align: center;
+
+                button {
+                    width: 140px;
+                    margin: 0 10px;
+                }
+
+                .confirm-action {
+                    border-color: #cd2020;
+                    color: #cd2020;
+                    &:hover {
+                        background-color: #cd2020;
+                        border-color: #cd2020;
+                        font-weight: bold;
+                        color: @dv-c-background;
+                    }
+                }
+            }
+        }
     }
 
     .stat-card {
@@ -80,15 +138,42 @@
         overflow: hidden;
 
         .content {
-            padding: 20px;
+            padding: 18px 20px 20px 20px;
 
-            .class-icon {
-                width: 60px;
-                height: 60px;
-                transform: translate(0, -5px);
-                float: left;
-                margin-right: 10px;
+            .header-box {
+                border-color: @dv-c-muted-separator;
+                border-width: 0 0 1px 0;
+                border-style: solid;
+                padding-bottom: 6px;
+                .class-icon {
+                    width: 60px;
+                    height: 60px;
+                    transform: translate(0, -5px);
+                    float: left;
+                    margin-right: 10px;
+                }
+
+                h1 {
+                    font-size: 32px;
+                    letter-spacing: 0.3em;
+                }
+                h2 {
+                    margin-top: -2px;
+                    font-family: @dv-f-lato;
+                    font-size: 16px;
+                    font-weight: 600;
+                    letter-spacing: 0.4em;
+                    color: @dv-c-idle;
+                }
             }
+        }
+
+        .footer-tip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding-left: 20px;
+            color: @dv-c-disabled;
         }
     }
 
@@ -185,7 +270,7 @@
                 text-align: center;
                 text-transform: uppercase;
                 letter-spacing: 0.2em;
-                padding-top: 8px;
+                padding-top: 10px;
                 .no-margin;
                 color: @dv-c-accent-1;
             }

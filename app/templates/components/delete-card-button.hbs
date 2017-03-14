@@ -1,0 +1,32 @@
+<button class="toolbutton" {{action "showConfirmDialog"}}><i class="fa fa-trash"></i></button>
+{{#if confirmShown}}
+    <div class="dialog-dimmer"></div>
+    <div class="dialog-container confirm-dialog">
+        <div class="accent-box top"></div>
+        <div class="container-body">
+            <div class="content">
+                <h1>
+                    Delete Card
+                </h1>
+                <h2>
+                    Are you sure?
+                </h2>
+                <p>
+                    You are about to delete
+                </p>
+                <p>
+                    <strong>{{card.characterName}} L{{card.level}} 
+                    {{format-class card.characterClassId}} ({{card.remark}})</strong>
+                </p>
+                <p>
+                    Once deleted, this card is forever lost (like your enhancing gold).
+                </p>
+                <div class="button-hbox">
+                    <button class="confirm-action" {{action "submitConfirm"}}>Delete Card</button>
+                    <button class="cancel-action" {{action "cancelConfirm"}}>Keep Card</button>
+                </div>
+            </div>
+        </div>
+        <div class="accent-box bottom"></div>
+    </div>
+{{/if}}
