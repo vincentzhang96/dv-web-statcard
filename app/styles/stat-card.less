@@ -153,12 +153,44 @@
                     margin-right: 10px;
                 }
 
-                h1 {
+                .edit.charname input {
                     font-size: 32px;
                     letter-spacing: 0.3em;
+                    max-width: 450px;
+                    text-overflow: ellipsis;
+                    background: transparent;
+                    font-family: @dv-f-geomanist;
+                    color: @dv-c-foreground;
+                    text-transform: uppercase;
+                    border: none;
+                    .no-pad;
+                    .no-margin;
                 }
+                .edit.level {
+                    overflow: hidden;
+                    input[type='number'] {
+                        -moz-appearance:textfield;
+                    }
+
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                    }
+                    input {
+                        font-family: @dv-f-lato;
+                        font-size: 16px;
+                        font-weight: 500;
+                        letter-spacing: 0.4em;
+                        color: @dv-c-idle;
+                        background: transparent;
+                        border: none;
+                        .no-pad;
+                        .no-margin;
+                        width: 42px;
+                    }
+                }
+
                 h2 {
-                    margin-top: -2px;
                     font-family: @dv-f-lato;
                     font-size: 16px;
                     font-weight: 500;
@@ -209,6 +241,7 @@
                 user-select: none;
                 cursor: pointer;
                 text-transform: uppercase;
+                white-space: nowrap;
                 background: linear-gradient(to right, #09090a 0%,#09090a 95%,#040404 100%);
                 &:hover {
                     .idle-fade;
@@ -242,6 +275,7 @@
                     font-size: 12px;
                     letter-spacing: 0;
                     font-weight: normal;
+                    text-overflow: ellipsis;
                     transition: color 0.125s linear;
                 }
 

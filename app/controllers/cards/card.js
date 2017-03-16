@@ -13,9 +13,12 @@ export default Ember.Controller.extend({
             model.deleteRecord();
             model.save();
             this.navigateIndex();
+        },
+        saveChange()
+        {
+            let model = this.get('model');
+            model.save();
         }
-
-
     }
 
 });
