@@ -14,6 +14,11 @@ export default Ember.Controller.extend({
             model.set('characterClassId', clazz);
             model.save();
             this.navigateCard(model);
+        },
+        cancelConfirm()
+        {
+            let model = this.get('model').card;
+            this.navigateCard(model);
         }
     }
 
