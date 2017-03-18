@@ -2,41 +2,52 @@ export default {
     
     "classes":
     {
+        "ar_archer": "Archer",
         "ar_acrobat_tempest": "Tempest",
         "ar_acrobat_windwalker": "Windwalker",
         "ar_hunter_silverhunter": "Silver Hunter",
         "ar_sharpshooter_sniper": "Sniper",
         "ar_sharpshooter_warden": "Sentinel",
+        "as_assassin": "Assassin",
         "as_shinobi_raven": "Raven",
         "as_shinobi_reaper": "Ripper",
         "as_taoist_abysswalker": "Abyss Walker",
         "as_taoist_lightbringer": "Light Fury",
+        "cl_cleric": "Cleric",
         "cl_heretic_archheretic": "Arch Heretic",
         "cl_paladin_crusader": "Crusader",
         "cl_paladin_guardian": "Guardian",
         "cl_priest_inquisitor": "Inquisitor",
         "cl_priest_saint": "Saint",
+        "ka_kali": "Kali",
         "ka_dancer_bladedancer": "Blade Dancer",
         "ka_dancer_spiritdancer": "Spirit Dancer",
         "ka_screamer_darksummoner": "Dark Summoner",
         "ka_screamer_souleater": "Soul Eater",
+        "le_lencea": "Lencea",
         "le_lancer_dragoon": "Boadicea",
         "le_lancer_valkyrie": "Valkyrie",
+        "ma_machina": "Machina",
         "ma_patrona_defensio": "Defensio",
         "ma_patrona_ruina": "Ruina",
+        "so_sorceress": "Sorceress",
         "so_elementalist_icewitch": "Glaciana",
         "so_elementalist_pyromancer": "Saleana",
         "so_mystic_chaosmage": "Obscuria",
         "so_mystic_warmage": "Illumia",
+        "so_mara_blackmara": "Black Mara",
+        "ti_tinkerer": "Tinkerer",
         "ti_alchemist_adept": "Adept",
         "ti_alchemist_physician": "Physician",
         "ti_engineer_gearmaster": "Gear Master",
         "ti_engineer_shootingstar": "Shooting Star",
+        "wa_warrior": "Warrior",
         "wa_avenger_darkavenger": "Dark Avenger",
         "wa_mercenary_barbarian": "Barbarian",
         "wa_mercenary_destroyer": "Destroyer",
         "wa_swordsman_gladiator": "Gladiator",
-        "wa_swordsman_lunarknight": "Moon Lord"
+        "wa_swordsman_lunarknight": "Moon Lord",
+        "le_ma_lencea_machina": "Lencea/Machina"
     },
     "stats": 
     {
@@ -83,7 +94,7 @@ export default {
             },
             "card": {
                 "tools": "Tools",
-                "footer-tip": "[TODO THIS DOESN'T WORK YET] Click on an item to edit its value",
+                "footer-tip": "Click on a value to edit it",
                 "delete-card": {
                     "title": "Delete Card",
                     "subtitle": "Are you sure?",
@@ -91,6 +102,11 @@ export default {
                     "body-2": "Once deleted, this card is forever lost (like your enhancing gold).",
                     "delete-card": "Delete Card",
                     "keep-card": "Keep Card",
+                },
+                "class-select": {
+                    "title": "Select Class",
+                    "subtitle": "Click on the desired class for your stat card",
+                    "cancel": "Cancel"
                 }
             },
         }
