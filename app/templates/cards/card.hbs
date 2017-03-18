@@ -21,6 +21,10 @@
                 </span> 
                 {{#link-to "cards.card.select-class" model class="edit clazz"}}{{format-class model.characterClassId}}{{/link-to}}
             </h2>
+            <h2 class="moddate">{{moment-format model.lastUpdated 'MM/DD/YYYY'}}</h2>
+            <div class="edit description">
+                {{input value=model.remark key-up="saveChange"}}
+            </div>
         </div>
     </div>
     <p class="footer-tip">{{t "ui.cards.card.footer-tip"}}</p>

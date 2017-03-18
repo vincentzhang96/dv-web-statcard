@@ -232,6 +232,41 @@
                     letter-spacing: 0.4em;
                     color: @dv-c-idle;
                 }
+                .moddate {
+                    position: absolute;
+                    top: 34px;
+                    right: 20px;
+                    font-family: @dv-f-lato;
+                    font-size: 16px;
+                    font-weight: normal;
+                    letter-spacing: 0.2em;
+                    color: @dv-c-accent-1;
+                    text-align: right;
+                }
+                .edit.description input {
+                    position: absolute;
+                    top: 56px;
+                    right: 20px;
+                    font-family: @dv-f-lato;
+                    font-size: 16px;
+                    font-weight: normal;
+                    letter-spacing: 0.2em;
+                    color: @dv-c-accent-1;
+                    text-transform: uppercase;
+                    text-align: right;
+                    background: transparent;
+                    border: none;
+                    width: 380px;
+                    .no-pad;
+                    .no-margin;
+                    transition: color 0.125s ease-in, border-color 0.125s ease-in;
+                    border-bottom: 1px transparent solid;
+                    &:hover,
+                    &:focus {
+                        color: @dv-c-foreground;
+                        border-bottom: 1px @dv-c-foreground solid;
+                    }
+                }
             }
         }
 

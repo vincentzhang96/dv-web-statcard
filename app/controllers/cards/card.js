@@ -17,6 +17,7 @@ export default Ember.Controller.extend({
         saveChange()
         {
             let model = this.get('model');
+            model.set('lastUpdated', new Date());
             model.save();
         }
     }
