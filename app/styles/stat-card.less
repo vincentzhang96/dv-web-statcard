@@ -152,6 +152,11 @@
                     transform: translate(0, -5px);
                     float: left;
                     margin-right: 10px;
+                    transition: border-color 0.125s ease-in;
+                    border-bottom: 1px transparent solid;
+                    &:hover {
+                        border-bottom: 1px @dv-c-foreground solid;
+                    }
                 }
 
                 .edit.charname input {
@@ -164,8 +169,14 @@
                     color: @dv-c-foreground;
                     text-transform: uppercase;
                     border: none;
+                    border-bottom: 1px transparent solid;
+                    transition: border-color 0.125s ease-in;
                     .no-pad;
                     .no-margin;
+                    &:hover,
+                    &:focus {
+                        border-bottom: 1px @dv-c-foreground solid;
+                    }
                 }
                 .edit.level {
                     overflow: hidden;
@@ -188,6 +199,13 @@
                         .no-pad;
                         .no-margin;
                         width: 42px;
+                        transition: color 0.125s ease-in, border-color 0.125s ease-in;
+                        border-bottom: 1px transparent solid;
+                        &:hover,
+                        &:focus {
+                            color: @dv-c-foreground;
+                            border-bottom: 1px @dv-c-foreground solid;
+                        }
                     }
                 }
                 .edit.clazz {
@@ -200,6 +218,12 @@
                     border: none;
                     .no-pad;
                     .no-margin;
+                    transition: color 0.125s ease-in, border-color 0.125s ease-in;
+                    border-bottom: 1px transparent solid;
+                    &:hover {
+                        color: @dv-c-foreground;
+                        border-bottom: 1px @dv-c-foreground solid;
+                    }
                 }
                 h2 {
                     font-family: @dv-f-lato;
@@ -216,7 +240,13 @@
             bottom: 0;
             left: 0;
             padding-left: 20px;
-            color: @dv-c-disabled;
+            color: transparent;
+            transition: color 0.125s ease-in;
+        }
+        &:hover {
+            .footer-tip {
+                color: @dv-c-body;
+            }
         }
     }
 
