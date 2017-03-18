@@ -9,7 +9,9 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('cards', function() {
     this.route('import');
-    this.route('card', { path: '/:card_id' });
+    this.route('card', { path: '/:card_id' }, function() {
+      this.route('select-class');
+    });
   });
 });
 

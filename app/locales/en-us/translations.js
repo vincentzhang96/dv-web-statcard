@@ -2,41 +2,52 @@ export default {
 
     "classes":
     {
+        "ar_archer": "Archer",
         "ar_acrobat_tempest": "Tempest",
         "ar_acrobat_windwalker": "Windwalker",
         "ar_hunter_silverhunter": "Silver Hunter",
         "ar_sharpshooter_sniper": "Sniper",
         "ar_sharpshooter_warden": "Warden",
+        "as_assassin": "Assassin",
         "as_shinobi_raven": "Raven",
         "as_shinobi_reaper": "Reaper",
         "as_taoist_abysswalker": "Abyss Walker",
         "as_taoist_lightbringer": "Light Bringer",
+        "cl_cleric": "Cleric",
         "cl_heretic_archheretic": "Arch Heretic",
         "cl_paladin_crusader": "Crusader",
         "cl_paladin_guardian": "Guardian",
         "cl_priest_inquisitor": "Inquisitor",
         "cl_priest_saint": "Saint",
+        "ka_kali": "Kali",
         "ka_dancer_bladedancer": "Blade Dancer",
         "ka_dancer_spiritdancer": "Spirit Dancer",
         "ka_screamer_darksummoner": "Dark Summoner",
         "ka_screamer_souleater": "Soul Eater",
+        "le_lencea": "Lencea",
         "le_lancer_dragoon": "Dragoon",
         "le_lancer_valkyrie": "Valkyrie",
+        "ma_machina": "Machina",
         "ma_patrona_defensio": "Defensio",
         "ma_patrona_ruina": "Ruina",
+        "so_sorceress": "Sorceress",
         "so_elementalist_icewitch": "Ice Witch",
         "so_elementalist_pyromancer": "Pyromancer",
         "so_mystic_chaosmage": "Chaos Mage",
         "so_mystic_warmage": "War Mage",
+        "so_mara_blackmara": "Black Mara",
+        "ti_tinkerer": "Tinkerer",
         "ti_alchemist_adept": "Adept",
         "ti_alchemist_physician": "Physician",
         "ti_engineer_gearmaster": "Gear Master",
         "ti_engineer_shootingstar": "Shooting Star",
+        "wa_warrior": "Warrior",
         "wa_avenger_darkavenger": "Dark Avenger",
         "wa_mercenary_barbarian": "Barbarian",
         "wa_mercenary_destroyer": "Destroyer",
         "wa_swordsman_gladiator": "Gladiator",
-        "wa_swordsman_lunarknight": "Lunar Knight"
+        "wa_swordsman_lunarknight": "Lunar Knight",
+        "le_ma_lencea_machina": "Lencea/Machina"
     },
     "stats": 
     {
@@ -92,7 +103,12 @@ export default {
                     "delete-card": "Delete Card",
                     "keep-card": "Keep Card",
                 },
-            },
+                "class-select": {
+                    "title": "Select Class",
+                    "subtitle": "Click on the desired class for your stat card",
+                    "cancel": "Cancel"
+                }
+            }
         }
     }
 };

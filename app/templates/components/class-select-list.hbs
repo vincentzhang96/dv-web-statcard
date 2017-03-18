@@ -1,0 +1,15 @@
+<div class="class-listing">
+    <div class="header-split">
+        <h3><span>{{t (concat "classes." data.base)}}</span></h3>
+    </div>
+    <ul>
+    {{#each data.specializations as |clazz|}}
+    <a href="#" {{action "select" clazz}}>
+        <li class="class-list-entry">
+            <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/blue/{{clazz}}.png" />
+            <h4>{{t (concat "classes." clazz)}}</h4>
+        </li>
+    </a>
+    {{/each}}
+    </ul>
+</div>

@@ -91,7 +91,7 @@ export default {
                     "body-2": "Once deleted, this card is forever lost (like your enhancing gold).",
                     "delete-card": "Delete Card",
                     "keep-card": "Keep Card",
-                },
+                }
             },
         }
     }

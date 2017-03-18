@@ -1,0 +1,25 @@
+<div class="dialog-dimmer"></div>
+<div class="dialog-container class-select-dialog">
+    <div class="accent-box top"></div>
+    <div class="container-body">
+        <div class="content">
+            <h1>
+                {{t "ui.cards.card.class-select.title"}}
+            </h1>
+            <h2>
+                {{t "ui.cards.card.class-select.subtitle"}}
+            </h2>
+            <div class="class-list-list">
+            {{#each model.classes as |clazz|}}
+                {{class-select-list data=clazz action="select"}}
+            {{/each}}
+            </div>
+            <div class="button-hbox">
+                <button class="cancel-action" {{action "cancelConfirm"}}>
+                    {{t "ui.cards.card.class-select.cancel"}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="accent-box bottom"></div>
+</div>

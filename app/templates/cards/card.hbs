@@ -13,8 +13,14 @@
             <div class="edit charname">
                 {{input value=model.characterName maxlength="16" key-up="saveChange"}}
             </div>
-            <h2>L<span class="edit level">{{input value=model.level min="1" max="100" type="number" inputmode="numeric" key-up="saveChange"}}</span> {{format-class model.characterClassId}}</h2>
+            <h2>L
+                <span class="edit level">
+                    {{input value=model.level min="1" max="100" type="number" inputmode="numeric" key-up="saveChange"}}
+                </span> 
+                {{#link-to "cards.card.select-class" model class="edit clazz"}}{{format-class model.characterClassId}}{{/link-to}}
+            </h2>
         </div>
     </div>
     <p class="footer-tip">{{t "ui.cards.card.footer-tip"}}</p>
 </div>
+{{outlet}}
