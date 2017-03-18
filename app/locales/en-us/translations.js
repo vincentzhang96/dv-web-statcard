@@ -94,7 +94,7 @@ export default {
             },
             "card": {
                 "tools": "Tools",
-                "footer-tip": "[TODO THIS DOESN'T WORK YET] Click on an item to edit its value",
+                "footer-tip": "Click on a value to edit it",
                 "delete-card": {
                     "title": "Delete Card",
                     "subtitle": "Are you sure?",
