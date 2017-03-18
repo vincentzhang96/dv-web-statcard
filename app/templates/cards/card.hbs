@@ -9,7 +9,9 @@
 <div class="stat-card">
     <div class="content">
         <div class="header-box">
+            {{#link-to "cards.card.select-class" model class="edit clazz"}}
             <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/blue/{{model.characterClassId}}.png" />
+            {{/link-to}}
             <div class="edit charname">
                 {{input value=model.characterName maxlength="16" key-up="saveChange"}}
             </div>
