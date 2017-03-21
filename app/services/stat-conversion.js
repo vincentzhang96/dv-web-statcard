@@ -19,11 +19,11 @@ function fdEvaluator(rawStat, level, capInfo)
     }
     if (ratio < 0.417)
     {
-        return ratio * 0.35;
+        return Math.min(capInfo.maximum, ratio * 0.35);
     }
     else
     {
-        return Math.pow(ratio, 2.2);
+        return Math.min(capInfo.maximum, Math.pow(ratio, 2.2));
     }
 }
 
