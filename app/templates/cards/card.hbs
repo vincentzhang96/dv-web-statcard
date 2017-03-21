@@ -13,17 +13,17 @@
             <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/blue/{{model.characterClassId}}.png" />
             {{/link-to}}
             <div class="edit charname">
-                {{input value=model.characterName maxlength="16" key-up="saveChange"}}
+                {{input value=model.characterName key-up="saveChange" enter="unfocus"}}
             </div>
             <h2>L
                 <span class="edit level">
-                    {{input value=model.level min="1" max="100" type="number" inputmode="numeric" key-up="saveChange"}}
+                    {{input value=model.level min="1" max="100" type="number" inputmode="numeric" key-up="saveChange" enter="unfocus"}}
                 </span> 
-                {{#link-to "cards.card.select-class" model class="edit clazz"}}{{format-class model.characterClassId}}{{/link-to}}
+                {{#link-to "cards.card.select-class" model class="edit clazz"}}{{t (concat "classes." model.characterClassId)}}{{/link-to}}
             </h2>
             <h2 class="moddate">{{moment-format model.lastUpdated 'MM/DD/YYYY'}}</h2>
             <div class="edit description">
-                {{input value=model.remark key-up="saveChange"}}
+                {{input value=model.remark key-up="saveChange" enter="unfocus"}}
             </div>
         </div>
 

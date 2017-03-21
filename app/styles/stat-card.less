@@ -141,6 +141,22 @@
         .content {
             padding: 18px 20px 20px 20px;
 
+            .edit-input {
+                border: none;
+                border-bottom: 1px transparent solid;
+                transition: border-color 0.125s ease-in, color 0.125s ease-in;
+                &:hover {
+                    border-bottom: 1px fadeout(@dv-c-foreground, 70%) solid;
+                }
+                &:focus {
+                    border-bottom: 1px @dv-c-foreground solid;
+                }
+            }
+
+            .edit input {
+                .edit-input;
+            }
+
             .header-box {
                 border-color: @dv-c-muted-separator;
                 border-width: 0 0 1px 0;
@@ -152,11 +168,7 @@
                     transform: translate(0, -5px);
                     float: left;
                     margin-right: 10px;
-                    transition: border-color 0.125s ease-in;
-                    border-bottom: 1px transparent solid;
-                    &:hover {
-                        border-bottom: 1px @dv-c-foreground solid;
-                    }
+                    .edit-input;
                 }
 
                 .edit.charname input {
@@ -168,15 +180,8 @@
                     font-family: @dv-f-geomanist;
                     color: @dv-c-foreground;
                     text-transform: uppercase;
-                    border: none;
-                    border-bottom: 1px transparent solid;
-                    transition: border-color 0.125s ease-in;
                     .no-pad;
                     .no-margin;
-                    &:hover,
-                    &:focus {
-                        border-bottom: 1px @dv-c-foreground solid;
-                    }
                 }
                 .edit.level {
                     overflow: hidden;
@@ -195,16 +200,12 @@
                         letter-spacing: 0.4em;
                         color: @dv-c-idle;
                         background: transparent;
-                        border: none;
                         .no-pad;
                         .no-margin;
                         width: 42px;
-                        transition: color 0.125s ease-in, border-color 0.125s ease-in;
-                        border-bottom: 1px transparent solid;
                         &:hover,
                         &:focus {
                             color: @dv-c-foreground;
-                            border-bottom: 1px @dv-c-foreground solid;
                         }
                     }
                 }
@@ -215,14 +216,11 @@
                     letter-spacing: 0.4em;
                     color: @dv-c-idle;
                     background: transparent;
-                    border: none;
                     .no-pad;
                     .no-margin;
-                    transition: color 0.125s ease-in, border-color 0.125s ease-in;
-                    border-bottom: 1px transparent solid;
+                    .edit-input;
                     &:hover {
                         color: @dv-c-foreground;
-                        border-bottom: 1px @dv-c-foreground solid;
                     }
                 }
                 h2 {
@@ -255,16 +253,12 @@
                     text-transform: uppercase;
                     text-align: right;
                     background: transparent;
-                    border: none;
                     width: 380px;
                     .no-pad;
                     .no-margin;
-                    transition: color 0.125s ease-in, border-color 0.125s ease-in;
-                    border-bottom: 1px transparent solid;
                     &:hover,
                     &:focus {
                         color: @dv-c-foreground;
-                        border-bottom: 1px @dv-c-foreground solid;
                     }
                 }
             }

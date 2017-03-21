@@ -19,6 +19,11 @@ export default Ember.Controller.extend({
             let model = this.get('model');
             model.set('lastUpdated', new Date());
             model.save();
+        },
+        unfocus()
+        {
+            console.log("unfocus");
+            document.activeElement.blur();
         }
     }
 

@@ -47,7 +47,8 @@ export default {
         "wa_mercenary_destroyer": "Destroyer",
         "wa_swordsman_gladiator": "Gladiator",
         "wa_swordsman_lunarknight": "Lunar Knight",
-        "le_ma_lencea_machina": "Lencea/Machina"
+        "le_ma_lencea_machina": "Lencea/Machina",
+        "none": "No class"
     },
     "stats": 
     {

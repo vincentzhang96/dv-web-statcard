@@ -47,7 +47,8 @@ export default {
         "wa_mercenary_destroyer": "Destroyer",
         "wa_swordsman_gladiator": "Gladiator",
         "wa_swordsman_lunarknight": "Moon Lord",
-        "le_ma_lencea_machina": "Lencea/Machina"
+        "le_ma_lencea_machina": "Lencea/Machina",
+        "none": "No class"
     },
     "stats": 
     {
@@ -107,6 +108,15 @@ export default {
                     "title": "Select Class",
                     "subtitle": "Click on the desired class for your stat card",
                     "cancel": "Cancel"
+                },
+                "statgroup": {
+                    "general": "General",
+                    "base": "Base Stats",
+                    "damage": "Damage",
+                    "defense": "Defences",
+                    "critical": "Critical",
+                    "elemental": "Elemental",
+                    "misc": "Misc"
                 }
             },
         }

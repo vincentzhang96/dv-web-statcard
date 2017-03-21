@@ -10,7 +10,7 @@ export default Ember.Route.extend({
         return this.get('store').findAll('statcard');
     },
     forceReload() {
-        location.reload();
+    
     },
     actions:
     {
