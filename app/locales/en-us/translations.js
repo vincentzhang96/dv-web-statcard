@@ -107,6 +107,15 @@ export default {
                     "title": "Select Class",
                     "subtitle": "Click on the desired class for your stat card",
                     "cancel": "Cancel"
+                },
+                "statgroup": {
+                    "general": "General",
+                    "base": "Base Stats",
+                    "damage": "Damage",
+                    "defense": "Defenses",
+                    "critical": "Critical",
+                    "elemental": "Elemental",
+                    "misc": "Misc"
                 }
             }
         }
