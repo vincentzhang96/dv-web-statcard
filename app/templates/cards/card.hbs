@@ -30,48 +30,48 @@
         <div class="stat-column left">
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.general"}}</h3>
-                {{basic-stat label=(t "stats.hp") value=model.statHp}}
-                {{basic-stat label=(t "stats.mana") value=model.statMp}}
+                {{basic-stat label=(t "stats.hp") value=model.statHp onEdit="saveChange"}}
+                {{basic-stat label=(t "stats.mana") value=model.statMana onEdit="saveChange"}}
             </div>
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.base"}}</h3>
-                {{basic-stat label=(t "stats.str") value=model.statStr}}
-                {{basic-stat label=(t "stats.agi") value=model.statAgi}}
-                {{basic-stat label=(t "stats.int") value=model.statInt}}
-                {{basic-stat label=(t "stats.vit") value=model.statVit}}
+                {{basic-stat label=(t "stats.str") value=model.statStr onEdit="saveChange"}}
+                {{basic-stat label=(t "stats.agi") value=model.statAgi onEdit="saveChange"}}
+                {{basic-stat label=(t "stats.int") value=model.statInt onEdit="saveChange"}}
+                {{basic-stat label=(t "stats.vit") value=model.statVit onEdit="saveChange"}}
 
             </div>
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.damage"}}</h3>
-                {{range-stat label=(t "stats.pdmg") minValue=model.statPDmgMin maxValue=model.statPDmgMax}}
-                {{range-stat label=(t "stats.mdmg") minValue=model.statMDmgMin maxValue=model.statMDmgMax}}
+                {{range-stat label=(t "stats.pdmg") minValue=model.statPDmgMin maxValue=model.statPDmgMax onEdit="saveChange"}}
+                {{range-stat label=(t "stats.mdmg") minValue=model.statMDmgMin maxValue=model.statMDmgMax onEdit="saveChange"}}
 
             </div>
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.defense"}}</h3>
-                {{cap-percent-stat label=(t "stats.pdef") value=model.statPDef valPercent1=(calc-def model.statPDef 80) valPercent2=(calc-def model.statPDef 90) valPercent3=(calc-def model.statPDef 93)}}
-                {{cap-percent-stat label=(t "stats.mdef") value=model.statMDef valPercent1=(calc-def model.statMDef 80) valPercent2=(calc-def model.statMDef 90) valPercent3=(calc-def model.statMDef 93)}}
+                {{cap-percent-stat label=(t "stats.pdef") value=model.statPDef onEdit="saveChange" valPercent1=(calc-def model.statPDef 80) valPercent2=(calc-def model.statPDef 90) valPercent3=(calc-def model.statPDef 93)}}
+                {{cap-percent-stat label=(t "stats.mdef") value=model.statMDef onEdit="saveChange" valPercent1=(calc-def model.statMDef 80) valPercent2=(calc-def model.statMDef 90) valPercent3=(calc-def model.statMDef 93)}}
             </div>
         </div>
         <div class="stat-column">
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.critical"}}</h3>
-                {{cap-percent-stat label=(t "stats.crit") value=model.statCrit valPercent1=(calc-crit model.statCrit 80) valPercent2=(calc-crit model.statCrit 90) valPercent3=(calc-crit model.statCrit 93)}}
-                {{cap-percent-stat label=(t "stats.critdmg") value=model.statCritDmg valPercent1=(calc-critdmg model.statCritDmg 80) valPercent2=(calc-critdmg model.statCritDmg 90) valPercent3=(calc-critdmg model.statCritDmg 93)}}
+                {{cap-percent-stat label=(t "stats.crit") value=model.statCrit onEdit="saveChange" valPercent1=(calc-crit model.statCrit 80) valPercent2=(calc-crit model.statCrit 90) valPercent3=(calc-crit model.statCrit 93)}}
+                {{cap-percent-stat label=(t "stats.critdmg") value=model.statCritDmg onEdit="saveChange" valPercent1=(calc-critdmg model.statCritDmg 80) valPercent2=(calc-critdmg model.statCritDmg 90) valPercent3=(calc-critdmg model.statCritDmg 93)}}
             </div>
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.elemental"}}</h3>
-
+                <p>Coming soon</p>
             </div>
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.misc"}}</h3>
-                {{cap-percent-stat label=(t "stats.fd") value=model.statFD valPercent1=(calc-fd model.statFD 80) valPercent2=(calc-fd model.statFD 90) valPercent3=(calc-fd model.statFD 93)}}
-                {{basic-stat label=(t "stats.hero") value=model.statHeroLevel}}
+                {{cap-percent-stat label=(t "stats.fd") value=model.statFD onEdit="saveChange" valPercent1=(calc-fd model.statFD 80) valPercent2=(calc-fd model.statFD 90) valPercent3=(calc-fd model.statFD 93)}}
+                {{basic-stat label=(t "stats.hero") value=model.statHeroLevel onEdit="saveChange"}}
 
             </div>
         </div>

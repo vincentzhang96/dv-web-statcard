@@ -157,6 +157,15 @@
                 .edit-input;
             }
 
+            input[type='number'] {
+                -moz-appearance:textfield;
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+
             .header-box {
                 border-color: @dv-c-muted-separator;
                 border-width: 0 0 1px 0;
@@ -174,7 +183,7 @@
                 .edit.charname input {
                     font-size: 32px;
                     letter-spacing: 0.3em;
-                    max-width: 450px;
+                    width: 450px;
                     text-overflow: ellipsis;
                     background: transparent;
                     font-family: @dv-f-geomanist;
@@ -185,14 +194,6 @@
                 }
                 .edit.level {
                     overflow: hidden;
-                    input[type='number'] {
-                        -moz-appearance:textfield;
-                    }
-
-                    input::-webkit-outer-spin-button,
-                    input::-webkit-inner-spin-button {
-                        -webkit-appearance: none;
-                    }
                     input {
                         font-family: @dv-f-lato;
                         font-size: 16px;
@@ -292,7 +293,7 @@
                     }
 
                     .stat-entry {
-                        margin: 1px 0;
+                        height: 16px;
                         .label {
                             display: inline-block;
                             color: @dv-c-foreground;
@@ -311,9 +312,17 @@
                             width: 70px;
                             white-space: nowrap;
                             color: @dv-c-body;
+                            .edit-input;
+                            cursor: text;
 
                             &.min {
                                 color: @dv-c-idle;
+                            }
+
+                            &.edit {
+                                background: none;
+                                height: 14px;
+                                transform: translate(-1px, 0);
                             }
                         }
 
