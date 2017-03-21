@@ -202,7 +202,7 @@
                         background: transparent;
                         .no-pad;
                         .no-margin;
-                        width: 42px;
+                        width: 48px;
                         &:hover,
                         &:focus {
                             color: @dv-c-foreground;
@@ -280,14 +280,56 @@
                 }
 
                 .statgroup {
-                    padding: 15px 10px;
+                    padding: 14px 10px;
 
                     h3 {
                         font-size: 16px;
                         font-family: @dv-f-lato;
-                        font-weight: 600;
+                        font-weight: 500;
                         letter-spacing: 0.4em;
                         color: @dv-c-accent-2;
+                        margin-bottom: 6px;
+                    }
+
+                    .stat-entry {
+                        margin: 1px 0;
+                        .label {
+                            display: inline-block;
+                            color: @dv-c-foreground;
+                            text-align: left;
+                            text-transform: uppercase;
+                            font-family: @dv-f-lato;
+                            letter-spacing: 0;
+                            font-size: 14px;
+                            width: 50px;
+                            white-space: nowrap;
+                        }
+
+                        .stat-value {
+                            display: inline-block;
+                            text-align: right;
+                            width: 70px;
+                            white-space: nowrap;
+                            color: @dv-c-body;
+
+                            &.min {
+                                color: @dv-c-idle;
+                            }
+                        }
+
+                        .stat-percents {
+                            display: inline-block;
+                            margin-left: 20px;
+                            .stat-percent {
+                                display: inline-block;
+                                width: 60px;
+                                text-align: right;
+                                color: @dv-c-body;
+                            }
+                            .capped {
+                                color: #cc49c8;
+                            }
+                        }
                     }
                 }
 

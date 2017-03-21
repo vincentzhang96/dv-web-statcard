@@ -31,27 +31,36 @@
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.general"}}</h3>
                 {{basic-stat label=(t "stats.hp") value=model.statHp}}
+                {{basic-stat label=(t "stats.mana") value=model.statMp}}
             </div>
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.base"}}</h3>
+                {{basic-stat label=(t "stats.str") value=model.statStr}}
+                {{basic-stat label=(t "stats.agi") value=model.statAgi}}
+                {{basic-stat label=(t "stats.int") value=model.statInt}}
+                {{basic-stat label=(t "stats.vit") value=model.statVit}}
 
             </div>
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.damage"}}</h3>
+                {{range-stat label=(t "stats.pdmg") minValue=model.statPDmgMin maxValue=model.statPDmgMax}}
+                {{range-stat label=(t "stats.mdmg") minValue=model.statMDmgMin maxValue=model.statMDmgMax}}
 
             </div>
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.defense"}}</h3>
-
+                {{cap-percent-stat label=(t "stats.pdef") value=model.statPDef valPercent1=(calc-def model.statPDef 80) valPercent2=(calc-def model.statPDef 90) valPercent3=(calc-def model.statPDef 93)}}
+                {{cap-percent-stat label=(t "stats.mdef") value=model.statMDef valPercent1=(calc-def model.statMDef 80) valPercent2=(calc-def model.statMDef 90) valPercent3=(calc-def model.statMDef 93)}}
             </div>
         </div>
         <div class="stat-column">
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.critical"}}</h3>
-
+                {{cap-percent-stat label=(t "stats.crit") value=model.statCrit valPercent1=(calc-crit model.statCrit 80) valPercent2=(calc-crit model.statCrit 90) valPercent3=(calc-crit model.statCrit 93)}}
+                {{cap-percent-stat label=(t "stats.critdmg") value=model.statCritDmg valPercent1=(calc-critdmg model.statCritDmg 80) valPercent2=(calc-critdmg model.statCritDmg 90) valPercent3=(calc-critdmg model.statCritDmg 93)}}
             </div>
             <div class="divider"></div>
             <div class="statgroup">
@@ -61,6 +70,8 @@
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.misc"}}</h3>
+                {{cap-percent-stat label=(t "stats.fd") value=model.statFD valPercent1=(calc-fd model.statFD 80) valPercent2=(calc-fd model.statFD 90) valPercent3=(calc-fd model.statFD 93)}}
+                {{basic-stat label=(t "stats.hero") value=model.statHeroLevel}}
 
             </div>
         </div>
