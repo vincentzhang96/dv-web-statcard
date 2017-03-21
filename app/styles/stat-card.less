@@ -281,6 +281,7 @@
                 }
 
                 .statgroup {
+                    position: relative;
                     padding: 14px 10px;
 
                     h3 {
@@ -290,6 +291,19 @@
                         letter-spacing: 0.4em;
                         color: @dv-c-accent-2;
                         margin-bottom: 6px;
+                    }
+
+                    .stat-percent-labels {
+                        position: absolute;
+                        left: 194px;
+                        top: 16px;
+                        white-space: nowrap;
+
+                        .level {
+                            display: inline-block;
+                            width: 60px;
+                            color: @dv-c-foreground;
+                        }
                     }
 
                     .stat-entry {
@@ -320,6 +334,7 @@
                             }
 
                             &.edit {
+                                width: 68px;
                                 background: none;
                                 height: 14px;
                                 transform: translate(-1px, 0);
