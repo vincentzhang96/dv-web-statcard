@@ -4,27 +4,46 @@ function linearEvaluator(rawStat, level, capInfo)
 {
     if (level < 1 || level > 100)
     {
-        return -1.0;
+        return -1;
     }
     let levelCap = capInfo.rawCapValues[level - 1];
-    return Math.min(capInfo.maximum, rawStat / levelCap);
+    let ret = {
+        result: rawStat / levelCap,
+        capped: false
+    };
+    if (ret.result >= capInfo.maximum)
+    {
+        ret.result = capInfo.maximum;
+        ret.capped = true;
+    }
+    return ret;
 }
 
 function fdEvaluator(rawStat, level, capInfo)
 {
-    let ratio = linearEvaluator(rawStat, level, capInfo);
-    if (ratio === -1.0)
+    let lin = linearEvaluator(rawStat, level, capInfo);
+    if (lin === -1)
     {
-        return -1.0;
+        return -1;
     }
-    if (ratio < 0.417)
+    let ret = {
+        result: 0,
+        capped: false
+    };
+    if (lin.result < 0.417)
     {
-        return Math.min(capInfo.maximum, ratio * 0.35);
+        ret.result = lin.result * 0.35;
     }
     else
     {
-        return Math.min(capInfo.maximum, Math.pow(ratio, 2.2));
+        ret.result = Math.pow(lin.result, 2.2);
     }
+    if (ret.result >= capInfo.maximum)
+    {
+        ret.result = capInfo.maximum;
+        ret.capped = true;
+    }
+    return ret;
 }
 
 export default Ember.Service.extend({
@@ -136,7 +155,11 @@ export default Ember.Service.extend({
     getCritDamagePercent(rawStat, level)
     {
         let ret = this.getPercent(rawStat, level, this.caps.critDamage);
-        return ret === -1 ? -1 : ret + 2.0;
+        if (ret !== -1)
+        {
+            ret.result += 2.0;
+        }
+        return ret;
     },
 
     getDefensePercent(rawStat, level)
