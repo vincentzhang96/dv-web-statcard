@@ -208,18 +208,26 @@
                 }
                 .edit.level {
                     overflow: hidden;
-                    input {
-                        font-family: @dv-f-lato;
-                        font-size: 16px;
-                        font-weight: 500;
-                        letter-spacing: 0.4em;
+                    display: inline;
+                    .label {
+                        display: none;
+                    }
+                    div {
+                        display: inline;
+                    }
+                    .stat-value {
+                        .edit-input;
+                        cursor: text;
                         color: @dv-c-idle;
-                        background: transparent;
-                        .no-pad;
-                        .no-margin;
-                        width: 48px;
-                        &:hover,
-                        &:focus {
+                        &:hover {
+                            color: @dv-c-foreground;
+                        }
+                        &.edit {
+                            width: 46px;
+                            background: none;
+                            height: 14px;
+                            transform: translate(-1px, 0);
+                            letter-spacing: 0.4em;
                             color: @dv-c-foreground;
                         }
                     }
@@ -256,24 +264,95 @@
                     color: @dv-c-accent-1;
                     text-align: right;
                 }
-                .edit.description input {
+                .edit.description {
                     position: absolute;
                     top: 56px;
                     right: 20px;
-                    font-family: @dv-f-lato;
-                    font-size: 16px;
-                    font-weight: normal;
-                    letter-spacing: 0.2em;
-                    color: @dv-c-accent-1;
-                    text-transform: uppercase;
+                    overflow: hidden;
                     text-align: right;
-                    background: transparent;
-                    width: 380px;
-                    .no-pad;
-                    .no-margin;
-                    &:hover,
-                    &:focus {
-                        color: @dv-c-foreground;
+                    border-color: transparent;
+                    .stat-entry {
+                        width: 380px;
+                        cursor: text;
+                        border-color: transparent;
+                        .edit-input;
+                        .label {
+                            display: none;
+                        }
+                        div {
+                            display: inline;
+                        }
+                        .stat-value {
+                            cursor: text;
+                            width: 380px;
+                            color: @dv-c-accent-1;
+                            letter-spacing: 0.4em;
+                            text-transform: uppercase;
+                            &.edit {
+                                width: 378px;
+                                background: none;
+                                height: 14px;
+                                transform: translate(-1px, 0);
+                                letter-spacing: 0.4em;
+                                color: @dv-c-foreground;
+                            }
+                        }
+                    }
+                    &:hover {
+                        .edit-input;
+                        .stat-entry .stat-value {
+                            color: @dv-c-foreground;
+                        }
+                    }
+                }
+            }
+
+            .stat-entry {
+                height: 16px;
+                .label {
+                    display: inline-block;
+                    color: @dv-c-foreground;
+                    text-align: left;
+                    text-transform: uppercase;
+                    font-family: @dv-f-lato;
+                    letter-spacing: 0;
+                    font-size: 14px;
+                    width: 50px;
+                    white-space: nowrap;
+                }
+
+                .stat-value {
+                    display: inline-block;
+                    text-align: right;
+                    width: 70px;
+                    white-space: nowrap;
+                    color: @dv-c-body;
+                    .edit-input;
+                    cursor: text;
+
+                    &.min {
+                        color: @dv-c-idle;
+                    }
+
+                    &.edit {
+                        width: 68px;
+                        background: none;
+                        height: 14px;
+                        transform: translate(-1px, 0);
+                    }
+                }
+
+                .stat-percents {
+                    display: inline-block;
+                    margin-left: 20px;
+                    .stat-percent {
+                        display: inline-block;
+                        width: 60px;
+                        text-align: right;
+                        color: @dv-c-body;
+                    }
+                    .capped {
+                        color: #cc49c8;
                     }
                 }
             }
@@ -317,56 +396,6 @@
                             display: inline-block;
                             width: 60px;
                             color: @dv-c-foreground;
-                        }
-                    }
-
-                    .stat-entry {
-                        height: 16px;
-                        .label {
-                            display: inline-block;
-                            color: @dv-c-foreground;
-                            text-align: left;
-                            text-transform: uppercase;
-                            font-family: @dv-f-lato;
-                            letter-spacing: 0;
-                            font-size: 14px;
-                            width: 50px;
-                            white-space: nowrap;
-                        }
-
-                        .stat-value {
-                            display: inline-block;
-                            text-align: right;
-                            width: 70px;
-                            white-space: nowrap;
-                            color: @dv-c-body;
-                            .edit-input;
-                            cursor: text;
-
-                            &.min {
-                                color: @dv-c-idle;
-                            }
-
-                            &.edit {
-                                width: 68px;
-                                background: none;
-                                height: 14px;
-                                transform: translate(-1px, 0);
-                            }
-                        }
-
-                        .stat-percents {
-                            display: inline-block;
-                            margin-left: 20px;
-                            .stat-percent {
-                                display: inline-block;
-                                width: 60px;
-                                text-align: right;
-                                color: @dv-c-body;
-                            }
-                            .capped {
-                                color: #cc49c8;
-                            }
                         }
                     }
                 }

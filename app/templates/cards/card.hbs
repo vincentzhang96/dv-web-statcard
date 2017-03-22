@@ -19,14 +19,14 @@
                 {{input value=model.characterName key-up="saveChange" enter="unfocus"}}
             </div>
             <h2>L
-                <span class="edit level">
-                    {{input value=model.level min="1" max="100" type="number" inputmode="numeric" key-up="saveChange" enter="unfocus"}}
-                </span> 
+                <div class="edit level">
+                    {{basic-stat label="" value=model.level onEdit="saveChange"}}
+                </div> 
                 {{#link-to "cards.card.select-class" model class="edit clazz"}}{{t (concat "classes." model.characterClassId)}}{{/link-to}}
             </h2>
             <h2 class="moddate">{{moment-format model.lastUpdated 'MM/DD/YYYY'}}</h2>
             <div class="edit description">
-                {{input value=model.remark key-up="saveChange" enter="unfocus"}}
+                {{basic-stat label="" value=model.remark onEdit="saveChange" isText="true"}}
             </div>
         </div>
 
