@@ -1,14 +1,14 @@
 <div class="stat-entry range">
     <div class="label">{{label}}</div>
-    {{#if showInputMax}}
-    {{input class="stat-value edit max" value=(mut maxValue) min="0" type="number" inputmode="numeric" enter="unfocus" focus-out="focusOut"}}
-    {{else}}
-    <div class="stat-value max" {{action activateMax}}>{{basic-stat-value maxValue}}</div>
-    {{/if}}
     {{#if showInputMin}}
     {{input class="stat-value edit min" value=(mut minValue) min="0" type="number" inputmode="numeric" enter="unfocus" focus-out="focusOut"}}
     {{else}}
     <div class="stat-value min" {{action activateMin}}>{{basic-stat-value minValue}}</div>
+    {{/if}}
+    {{#if showInputMax}}
+    {{input class="stat-value edit max" value=(mut maxValue) min="0" type="number" inputmode="numeric" enter="unfocus" focus-out="focusOut"}}
+    {{else}}
+    <div class="stat-value max" {{action activateMax}}>{{basic-stat-value maxValue}}</div>
     {{/if}}
 </div>
 <!-- TODO Click to edit -->
