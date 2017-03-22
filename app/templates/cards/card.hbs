@@ -16,7 +16,7 @@
             <img class="class-icon" src="https://static.divinitor.com/site/common/classicons/small/blue/{{model.characterClassId}}.png" />
             {{/link-to}}
             <div class="edit charname">
-                {{input value=model.characterName key-up="saveChange" enter="unfocus"}}
+                {{basic-stat label="" value=model.characterName onEdit="saveChange" isText="true"}}
             </div>
             <h2>L
                 <div class="edit level">

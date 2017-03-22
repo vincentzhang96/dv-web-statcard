@@ -194,7 +194,64 @@
                     .edit-input;
                 }
 
-                .edit.charname input {
+                .edit.charname {
+                    text-align: left;
+                    height: 38px;
+                    width: 450px;
+                    margin-left: 70px;
+                    font-size: 32px;
+                    letter-spacing: 0.3em;
+                    text-overflow: ellipsis;
+                    background: transparent;
+                    font-family: @dv-f-geomanist;
+                    color: @dv-c-foreground;
+                    text-transform: uppercase;
+                    border-color: transparent;
+                    white-space: nowrap;
+                    .stat-entry {
+                        width: 450px;
+                        height: 38px;
+                        cursor: text;
+                        border-color: transparent;
+                        .edit-input;
+                        .label {
+                            display: none;
+                        }
+                        div {
+                            display: inline;
+                        }
+                        .stat-value {
+                            cursor: text;
+                            width: 450px;
+                            color: @dv-c-foreground;
+                            letter-spacing: 0.3em;
+                            text-align: left;
+                            text-transform: uppercase;
+                            &:hover {
+                                border-color: transparent;
+                            }
+                            &.edit {
+                                width: 448px;
+                                background: none;
+                                height: 38px;
+                                transform: translate(-1px, -3px);
+                                letter-spacing: 0.3em;
+                                color: @dv-c-foreground;
+                                &:focus {
+                                    border-color: @dv-c-foreground;
+                                }
+                            }
+                        }
+                        &:hover {
+                            .edit-input;
+                            .stat-entry .stat-value {
+                                color: @dv-c-foreground;
+                            }
+                        }
+                    }
+                }
+
+                .edit.charname > input {
                     font-size: 32px;
                     letter-spacing: 0.3em;
                     width: 450px;
