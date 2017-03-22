@@ -3,10 +3,13 @@
         <p>{{t "ui.cards.card.tools"}}</p>
     </div>
     <div class="tool-list">
-        {{delete-card-button card=model onConfirm=(action "reallyDeleteCard")}}
+        <ul>
+            <li>{{delete-card-button card=model onConfirm=(action "reallyDeleteCard")}}</li>
+            <li><button class="toolbutton" {{action "snapshot"}}><i class="fa fa-camera"></i></button></li>
+        </ul>
     </div>
 </div>
-<div class="stat-card">
+<div class="stat-card" id="stat-card-active">
     <div class="content">
         <div class="header-box">
             {{#link-to "cards.card.select-class" model class="edit clazz"}}

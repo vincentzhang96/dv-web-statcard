@@ -10,12 +10,7 @@ export default Ember.Controller.extend({
     {
         createCard() 
         {
-            let newCard = this.get('store').createRecord('statcard',
-            {
-                characterName: "New character",
-                remark: "Empty card",
-                characterClassId: "none"
-            });
+            let newCard = this.get('store').createRecord('statcard', {});
             newCard.save();
             this.navigateToCard(newCard);
         },

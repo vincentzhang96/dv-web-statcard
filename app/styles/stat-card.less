@@ -81,12 +81,26 @@
 
         .tool-list {
             text-align: center;
+            white-space: nowrap;
+            margin: 0 10px;
+
+            ul {
+                .no-pad;
+                .no-margin;
+                list-style-type: none;
+                li {
+                    float: left;
+                    margin: 0 12px;
+                }
+            }
 
             .toolbutton {
                 border: none;
                 background: none;
                 color: @dv-c-body;
                 .no-pad;
+                white-space: nowrap;
+                display: inline;
                 
                 &:hover {
                     color: @dv-c-accent-2;
