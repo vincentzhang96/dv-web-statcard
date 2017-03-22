@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
         },
         snapshot()
         {
-            let newWin = window.open('data:,Generating%20image%2C%20please%20wait');
+            let newWin = window.open('data:,Generating%20card%20image%2C%20please%20wait.%20This%20can%20take%20up%20to%2030%20seconds%20on%20slow%20machines.');
             html2canvas(document.getElementById('stat-card-active'), {
                 width: 800,
                 height: 500,
