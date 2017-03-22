@@ -2,7 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
     characterName: DS.attr('string', { defaultValue: 'New character' }),
-    remark: DS.attr('string', { defaultValue: 'Massive goldbuyer (edit this!)' }),
+    remark: DS.attr('string', { defaultValue: 'CLICK TO EDIT THIS TEXT' }),
     characterClassId: DS.attr('string', { defaultValue: 'none' }),
     level: DS.attr('number', { defaultValue: 93 }),
     lastUpdated: DS.attr('date', 
