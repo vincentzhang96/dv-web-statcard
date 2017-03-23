@@ -53,7 +53,7 @@ export default {
     "stats": 
     {
         "hp": "HP",
-        "mana": "Mana",
+        "mana": "MP",
         "str": "STR",
         "agi": "AGI",
         "int": "INT",
