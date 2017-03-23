@@ -70,7 +70,13 @@
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.elemental"}}</h3>
-                <p>Coming soon</p>
+                <div class="element-selector">{{t (concat "ui.cards.card.elemental." model.conversionStatus)}}</div>
+                {{#if (neq model.conversionStatus "none")}}
+                    F{{showFire}}
+                    I{{showIce}}
+                    L{{showLight}}
+                    D{{showDark}}
+                {{/if}}
             </div>
             <div class="divider"></div>
             <div class="statgroup">

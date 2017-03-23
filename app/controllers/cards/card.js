@@ -89,6 +89,66 @@ export default Ember.Controller.extend({
                 }
             });
         }
-    }
+    },
 
+    checkEle(type) {
+        return this.get(`model.stat${type}`) > 0 || ClassElemental[this.get('model.characterClassId')].indexOf(type.toLowerCase()) !== -1;
+    },
+    showFire: Ember.computed('model.{statFire,characterClassId}', function()
+    {
+        return this.checkEle('Fire');
+    }),
+    showIce: Ember.computed('model.{statIce,characterClassId}', function()
+    {
+        return this.checkEle('Ice');
+    }),
+    showLight: Ember.computed('model.{statLight,characterClassId}', function()
+    {
+        return this.checkEle('Light');
+    }),
+    showDark: Ember.computed('model.{statDark,characterClassId}', function()
+    {
+        return this.checkEle('Dark');
+    })
 });
+
+
+const ClassElemental = {
+        "ar_acrobat_tempest": "none",
+        "ar_acrobat_windwalker": "none",
+        "ar_hunter_silverhunter": "light",
+        "ar_sharpshooter_sniper": "none",
+        "ar_sharpshooter_warden": "none",
+        "as_shinobi_raven": "dark",
+        "as_shinobi_reaper": "fire",
+        "as_taoist_abysswalker": "dark",
+        "as_taoist_lightbringer": "light",
+        "cl_heretic_archheretic": "dark",
+        "cl_paladin_crusader": "light",
+        "cl_paladin_guardian": "light",
+        "cl_priest_inquisitor": "light",
+        "cl_priest_saint": "light",
+        "ka_dancer_bladedancer": "none",
+        "ka_dancer_spiritdancer": "none",
+        "ka_screamer_darksummoner": "dark",
+        "ka_screamer_souleater": "dark",
+        "le_lancer_dragoon": "none",
+        "le_lancer_valkyrie": "light",
+        "ma_patrona_defensio": "none",
+        "ma_patrona_ruina": "none",
+        "so_elementalist_icewitch": "ice",
+        "so_elementalist_pyromancer": "fire",
+        "so_mystic_chaosmage": "dark",
+        "so_mystic_warmage": "none",
+        "so_mara_blackmara": "dark",
+        "ti_alchemist_adept": "fire ice",
+        "ti_alchemist_physician": "dark",
+        "ti_engineer_gearmaster": "none",
+        "ti_engineer_shootingstar": "none",
+        "wa_avenger_darkavenger": "fire",
+        "wa_mercenary_barbarian": "none",
+        "wa_mercenary_destroyer": "none",
+        "wa_swordsman_gladiator": "none",
+        "wa_swordsman_lunarknight": "none",
+        "none": "unset"
+};

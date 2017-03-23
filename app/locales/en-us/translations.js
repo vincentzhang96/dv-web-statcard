@@ -117,6 +117,12 @@ export default {
                     "critical": "Critical",
                     "elemental": "Elemental",
                     "misc": "Misc"
+                },
+                "elemental": {
+                    "unset": "Click to set elemental",
+                    "none": "Non-elemental",
+                    "conversion": "Converted",
+                    "innate": "Innate"
                 }
             }
         }
