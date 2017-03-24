@@ -72,10 +72,10 @@
                 <h3>{{t "ui.cards.card.statgroup.elemental"}}</h3>
                 <div class="element-selector">{{t (concat "ui.cards.card.elemental." model.conversionStatus)}}</div>
                 {{#if (neq model.conversionStatus "none")}}
-                    F{{showFire}}
-                    I{{showIce}}
-                    L{{showLight}}
-                    D{{showDark}}
+                    F{{showEle.fire}}
+                    I{{showEle.ice}}
+                    L{{showEle.light}}
+                    D{{showEle.dark}}
                 {{/if}}
             </div>
             <div class="divider"></div>

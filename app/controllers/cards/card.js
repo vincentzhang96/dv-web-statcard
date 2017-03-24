@@ -11,6 +11,7 @@ const MAX_CRIT = 999999;
 const MAX_CRITDMG = 999999;
 const MAX_FD = 99999;
 const MAX_HERO = 70;
+const MAX_ELEMENTAL = 3;
 
 export default Ember.Controller.extend({
     navigateIndex()
@@ -41,6 +42,10 @@ export default Ember.Controller.extend({
         this.clampProperty(model, 'statMDef', MIN_STAT, MAX_DEF);
         this.clampProperty(model, 'statCrit', MIN_STAT, MAX_CRIT);
         this.clampProperty(model, 'statCritDmg', MIN_STAT, MAX_CRITDMG);
+        this.clampProperty(model, 'statFire', MIN_STAT, MAX_ELEMENTAL);
+        this.clampProperty(model, 'statIce', MIN_STAT, MAX_ELEMENTAL);
+        this.clampProperty(model, 'statLight', MIN_STAT, MAX_ELEMENTAL);
+        this.clampProperty(model, 'statDark', MIN_STAT, MAX_ELEMENTAL);
         this.clampProperty(model, 'statFD', MIN_STAT, MAX_FD);
         this.clampProperty(model, 'statHeroLevel', MIN_STAT, MAX_HERO);
         //  Swap min and max if reversed
@@ -90,9 +95,9 @@ export default Ember.Controller.extend({
             });
         }
     },
-
+    showAllElements: false,
     checkEle(type) {
-        return this.get(`model.stat${type}`) > 0 || ClassElemental[this.get('model.characterClassId')].indexOf(type.toLowerCase()) !== -1;
+        return this.showAllElements || this.get(`model.stat${type}`) > 0 || ClassElemental[this.get('model.characterClassId')].indexOf(type.toLowerCase()) !== -1;
     },
     showFire: Ember.computed('model.{statFire,characterClassId}', function()
     {
@@ -109,6 +114,15 @@ export default Ember.Controller.extend({
     showDark: Ember.computed('model.{statDark,characterClassId}', function()
     {
         return this.checkEle('Dark');
+    }),
+    showEle: Ember.computed('showFire', 'showIce', 'showLight', 'showDark', function()
+    {
+        return {
+            fire: this.get('showFire'),
+            ice: this.get('showIce'),
+            light: this.get('showLight'),
+            dark: this.get('showDark')
+        };
     })
 });
 
