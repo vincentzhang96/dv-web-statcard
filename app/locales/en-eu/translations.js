@@ -117,6 +117,13 @@ export default {
                     "critical": "Critical",
                     "elemental": "Elemental",
                     "misc": "Misc"
+                },
+                "elemental": {
+                    "unset": "Click here to edit elemental",
+                    "done": "Click here to finish editing<br/>Non-innate elements and<br/>elements at 0% will be hidden",
+                    "none": "Non-elemental",
+                    "conversion": "Converted",
+                    "innate": "Innate"
                 }
             },
         }
