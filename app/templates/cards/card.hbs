@@ -68,7 +68,7 @@
                 {{cap-percent-stat label=(t "stats.critdmg") value=model.statCritDmg onEdit="saveChange" valPercent1=(calc-critdmg model.statCritDmg 80) valPercent2=(calc-critdmg model.statCritDmg 90) valPercent3=(calc-critdmg model.statCritDmg 93)}}
             </div>
             <div class="divider"></div>
-            <div class="statgroup">
+            <div class="statgroup elemental">
                 <h3>{{t "ui.cards.card.statgroup.elemental"}}</h3>
                 <a href="#" class="element-selector" {{action "toggleEditElemental"}}>
                     {{#if showAllElements}}
@@ -77,11 +77,28 @@
                     {{t "ui.cards.card.elemental.unset"}}
                     {{/if}}
                 </a>
-                {{#if (neq model.conversionStatus "none")}}
-                    F{{showEle.fire}}
-                    I{{showEle.ice}}
-                    L{{showEle.light}}
-                    D{{showEle.dark}}
+                <p class="elemental-status">
+                {{# if isNonElemental}}
+                    {{t "ui.cards.card.elemental.none"}}
+                {{/if}}
+                {{# if isInnate}}
+                    {{t "ui.cards.card.elemental.innate"}}
+                {{/if}}
+                {{# if isConverted}}
+                    {{t "ui.cards.card.elemental.conversion"}}
+                {{/if}}
+                </p>
+                {{#if showEle.fire}}
+                    {{percent-stat label=(t "stats.fire") value=model.statFire onEdit="saveChange" pid="fire" editable=showAllElements}}
+                {{/if}}
+                {{#if showEle.ice}}
+                    {{percent-stat label=(t "stats.ice") value=model.statIce onEdit="saveChange" pid="ice" editable=showAllElements}}
+                {{/if}}
+                {{#if showEle.light}}
+                    {{percent-stat label=(t "stats.light") value=model.statLight onEdit="saveChange" pid="light" editable=showAllElements}}
+                {{/if}}
+                {{#if showEle.dark}}
+                    {{percent-stat label=(t "stats.dark") value=model.statDark onEdit="saveChange" pid="dark" editable=showAllElements}}
                 {{/if}}
             </div>
             <div class="divider"></div>

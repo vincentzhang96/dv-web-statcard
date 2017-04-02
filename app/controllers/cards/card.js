@@ -11,7 +11,7 @@ const MAX_CRIT = 999999;
 const MAX_CRITDMG = 999999;
 const MAX_FD = 99999;
 const MAX_HERO = 70;
-const MAX_ELEMENTAL = 3;
+const MAX_ELEMENTAL = 300;
 
 export default Ember.Controller.extend({
     navigateIndex()
@@ -81,25 +81,36 @@ export default Ember.Controller.extend({
         },
         snapshot()
         {
-            let newWin = window.open('data:,Generating%20card%20image%2C%20please%20wait.%20This%20can%20take%20up%20to%2030%20seconds%20on%20slow%20machines.');
-            html2canvas(document.getElementById('stat-card-active'), {
-                width: 800,
-                height: 500,
-                letterRendering: true,
-                logging: true,
-                useCORS: true,
-                onrendered: function(canvas) {
-                    let img = canvas.toDataURL("image/png");
-                    newWin.location = img;
-                }
+            //  Save current edit status
+            let old = this.get('showAllElements');
+            let tthis = this;
+            //  Hide it for now
+            this.set('showAllElements', false);
+            //  Render after UI updates
+            Ember.run.scheduleOnce('afterRender', this, function() {
+                let newWin = window.open('data:,Generating%20card%20image%2C%20please%20wait.%20This%20can%20take%20up%20to%2030%20seconds%20on%20slow%20machines.');
+                html2canvas(document.getElementById('stat-card-active'), {
+                    width: 800,
+                    height: 500,
+                    letterRendering: true,
+                    logging: true,
+                    useCORS: true,
+                    onrendered: function(canvas) {
+                        let img = canvas.toDataURL("image/png");
+                        newWin.location = img;
+                        //  Restore
+                        tthis.set('showAllElements', old);
+                    }
+                });
             });
+            
         },
         toggleEditElemental() {
-            console.log(this.get('showAllElements'));
             this.toggleProperty('showAllElements');
         }
     },
     showAllElements: false,
+    editingElemental: false,
     checkEle(type) {
         return this.showAllElements || this.get(`model.stat${type}`) > 0 || ClassElemental[this.get('model.characterClassId')].indexOf(type.toLowerCase()) !== -1;
     },
@@ -127,6 +138,28 @@ export default Ember.Controller.extend({
             light: this.get('showLight'),
             dark: this.get('showDark')
         };
+    }),
+    isElemental: Ember.computed('showEle', function()
+    {
+        return this.get(`model.statFire`) > 0 ||
+            this.get(`model.statIce`) > 0 ||
+            this.get(`model.statLight`) > 0 ||
+            this.get(`model.statDark`) > 0;
+    }),
+    isNonElemental: Ember.computed('isElemental', 'model.characterClassId', function()
+    {
+        let ele = ClassElemental[this.get('model.characterClassId')];
+        return (ele === 'none' || ele === 'unset') && !this.get('isElemental');
+    }),
+    isConverted: Ember.computed('isElemental', 'model.characterClassId', function()
+    {
+        let ele = ClassElemental[this.get('model.characterClassId')];
+        return ele === 'none' && this.get('isElemental') && ele !== 'unset';
+    }),
+    isInnate: Ember.computed('isElemental', 'model.characterClassId', function()
+    {
+        let ele = ClassElemental[this.get('model.characterClassId')];
+        return ele !== 'none' && ele !== 'unset';
     })
 });
 

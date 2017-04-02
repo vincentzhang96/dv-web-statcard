@@ -458,9 +458,51 @@
                             color: @dv-c-foreground;
                         }
                     }
+
+                    &.elemental {
+                        .disabled {
+                            .stat-value {
+                                border-color: transparent;
+                            }
+                        }
+                        .elemental-status {
+                            margin: 2px 0;
+                            color: @dv-c-foreground;
+                            text-transform: uppercase;
+                            letter-spacing: -0.005em;
+                        }
+
+                        .stat-entry {
+                            &.fire .label {
+                                color: #dd7020;
+                            }
+                            &.ice .label {
+                                color: #62d5e3;
+                            }
+                            &.light .label {
+                                color: #e3db62;
+                            }
+                            &.dark .label {
+                                color: #9010b0;
+                            }
+                        }
+                    }
                 }
             }
+            .element-selector {
+                opacity: 0.0;
+                transition: opacity 0.125s ease-in, color 0.125s ease-in, border-color 0.125s ease-in;
+                position: absolute;
+                right: 10px;
+                top: 16px;
+                text-align: right;
+                border-bottom: 1px fadeout(@dv-c-foreground, 70%) solid;
+                padding: 4px;
 
+                &:hover {
+                    border-bottom: 1px @dv-c-foreground solid;
+                }
+            }
             .branding {
                 width: 292px;
                 height: 31px;
@@ -469,13 +511,6 @@
                 right: 60px;
             }
 
-            .element-selector {
-                opacity: 0.0;
-                transition: opacity 0.125s ease-in, color 0.125s ease-in;
-                position: absolute;
-                right: 10px;
-                top: 16px;
-            }
         }
 
         .footer-tip {
