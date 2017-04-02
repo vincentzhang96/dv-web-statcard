@@ -119,7 +119,8 @@ export default {
                     "misc": "Misc"
                 },
                 "elemental": {
-                    "unset": "Click to set elemental",
+                    "unset": "Click to edit elemental",
+                    "done": "Click to finish editing",
                     "none": "Non-elemental",
                     "conversion": "Converted",
                     "innate": "Innate"

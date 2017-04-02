@@ -459,8 +459,6 @@
                         }
                     }
                 }
-
-                
             }
 
             .branding {
@@ -469,6 +467,14 @@
                 position: absolute;
                 bottom: 40px;
                 right: 60px;
+            }
+
+            .element-selector {
+                opacity: 0.0;
+                transition: opacity 0.125s ease-in, color 0.125s ease-in;
+                position: absolute;
+                right: 10px;
+                top: 16px;
             }
         }
 
@@ -483,6 +489,10 @@
         &:hover {
             .footer-tip {
                 color: @dv-c-body;
+            }
+
+            .element-selector {
+                opacity: 1.0;
             }
         }
     }

@@ -93,29 +93,33 @@ export default Ember.Controller.extend({
                     newWin.location = img;
                 }
             });
+        },
+        toggleEditElemental() {
+            console.log(this.get('showAllElements'));
+            this.toggleProperty('showAllElements');
         }
     },
     showAllElements: false,
     checkEle(type) {
         return this.showAllElements || this.get(`model.stat${type}`) > 0 || ClassElemental[this.get('model.characterClassId')].indexOf(type.toLowerCase()) !== -1;
     },
-    showFire: Ember.computed('model.{statFire,characterClassId}', function()
+    showFire: Ember.computed('showAllElements', 'model.{statFire,characterClassId}', function()
     {
         return this.checkEle('Fire');
     }),
-    showIce: Ember.computed('model.{statIce,characterClassId}', function()
+    showIce: Ember.computed('showAllElements', 'model.{statIce,characterClassId}', function()
     {
         return this.checkEle('Ice');
     }),
-    showLight: Ember.computed('model.{statLight,characterClassId}', function()
+    showLight: Ember.computed('showAllElements', 'model.{statLight,characterClassId}', function()
     {
         return this.checkEle('Light');
     }),
-    showDark: Ember.computed('model.{statDark,characterClassId}', function()
+    showDark: Ember.computed('showAllElements', 'model.{statDark,characterClassId}', function()
     {
         return this.checkEle('Dark');
     }),
-    showEle: Ember.computed('showFire', 'showIce', 'showLight', 'showDark', function()
+    showEle: Ember.computed('showAllElements', 'showFire', 'showIce', 'showLight', 'showDark', function()
     {
         return {
             fire: this.get('showFire'),

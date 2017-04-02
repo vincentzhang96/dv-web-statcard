@@ -70,7 +70,13 @@
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.elemental"}}</h3>
-                <div class="element-selector">{{t (concat "ui.cards.card.elemental." model.conversionStatus)}}</div>
+                <a href="#" class="element-selector" {{action "toggleEditElemental"}}>
+                    {{#if showAllElements}}
+                    {{t "ui.cards.card.elemental.done"}}
+                    {{else}}
+                    {{t "ui.cards.card.elemental.unset"}}
+                    {{/if}}
+                </a>
                 {{#if (neq model.conversionStatus "none")}}
                     F{{showEle.fire}}
                     I{{showEle.ice}}
