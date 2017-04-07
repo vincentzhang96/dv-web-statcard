@@ -40,6 +40,17 @@ export default Ember.Controller.extend({
         {
             document.activeElement.blur();
         },
+        export()
+        {
+            let model = this.get('model');
+            let expData = JSON.stringify(model);
+            let dataBlob = new Blob([expData], {type: "application/json"});
+            let dataUrl = URL.createObjectURL(dataBlob);
+            let dummyLink = document.getElementById('export-dummy');
+            dummyLink.download = `card-${model.get('characterName')}.DVSTATCARD`;
+            dummyLink.href = dataUrl;
+            dummyLink.click();
+        },
         snapshot()
         {
             //  Save current edit status

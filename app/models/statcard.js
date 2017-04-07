@@ -41,7 +41,6 @@ export default DS.Model.extend(Copyable, {
     statMDef: DS.attr('number', { defaultValue: 0 }),
     statCrit: DS.attr('number', { defaultValue: 0 }),
     statCritDmg: DS.attr('number', { defaultValue: 0 }),
-    conversionStatus: DS.attr('string', { defaultValue: 'unset' }),
     statFire: DS.attr('number', { defaultValue: 0 }),
     statIce: DS.attr('number', { defaultValue: 0 }),
     statLight: DS.attr('number', { defaultValue: 0 }),
