@@ -4,9 +4,26 @@
     </div>
     <div class="tool-list">
         <ul>
-            <li>{{delete-card-button card=model onConfirm=(action "reallyDeleteCard")}}</li>
-            <li><button class="toolbutton" {{action "snapshot"}}><i class="fa fa-camera"></i></button></li>
-            <li><button class="toolbutton" {{action "duplicateCard"}}><i class="fa fa-copy"></i></button></li>
+            <li class="tooltip">
+                {{delete-card-button card=model onConfirm=(action "reallyDeleteCard")}}
+                <span class="tooltext">Delete Card</span>
+            </li>
+            <li class="tooltip">
+                <button class="toolbutton" {{action "duplicateCard"}}><i class="fa fa-copy"></i></button>
+                <span class="tooltext">Duplicate Card</span>
+            </li>
+            <li class="tooltip">
+                {{#link-to "cards.import"}}<button class="toolbutton"><i class="fa fa-upload"></i></button>{{/link-to}}
+                <span class="tooltext">Import Card</span>
+            </li>
+            <li class="tooltip">
+                <button class="toolbutton" {{action "export"}}><i class="fa fa-download"></i></button>
+                <span class="tooltext">Export Card Data</span>
+            </li>
+            <li class="tooltip">
+                <button class="toolbutton" {{action "snapshot"}}><i class="fa fa-camera"></i></button>
+                <span class="tooltext">Export Card Image</span>
+            </li>
         </ul>
     </div>
 </div>
