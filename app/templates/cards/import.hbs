@@ -1,13 +1,19 @@
 <div class="import-view">
     <div class="import"> 
+        <div class="accent-box top"></div>
         <h2><i class="fa fa-upload"></i> Import Statcard</h2>
         <p>
             Load a DVSTATCARD file
         </p>
+        <label class="button card-upload-btn">
+            Select DVSTATCARD
+            <input id="cardup" type="file" onchange={{action "import"}} accept=".DVSTATCARD"/>
+        </label>
 
         <p>
             To import stats from a build on spacem&apos;s <a href="https://spacem.github.io/dngearsim/">dngearsim</a>, 
             click the &quot;Export to Divinitor Statcard&quot; button in the gearsim.
         </p>
+        <div class="accent-box bottom"></div>
     </div>
 </div>

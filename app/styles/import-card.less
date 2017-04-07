@@ -1,22 +1,15 @@
 .import-view {
     cursor: default;
-    width: 1000px;
-    height: 500px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -250px 0 0 -500px;
-    float: right;
+    @dialog-width: 400px;
     .import {
         position: absolute;
         padding: 18px 20px 20px 20px;
-        top: 0;
-        left: 200px;
-        width: 400px;
-        height: 500px;
+        top: 90px;
+        left: 280px;
+        width: @dialog-width;
+        height: 343px;
         background-color: @dv-c-background;
-        overflow: hidden;
-
+        border: @dv-c-body solid 2px;
         h2 {
             border-color: @dv-c-muted-separator;
             border-width: 0 0 1px 0;
@@ -24,7 +17,36 @@
             padding: 0 0 8px 10px;
         }
 
+        input[type="file"] {
+            display: none;
+        }
+        .card-upload-btn {
+            padding: 8px 12px;
+        }
 
+    }
+
+    .accent-box {
+        background-color: @dv-c-background;
+        border-color: @dv-c-body;
+        border-style: solid;
+        width: @dialog-width * 0.844;
+        height: 3px;
+        padding: 0;
+        margin: auto;
+        margin-left: @dialog-width * 0.07;
+    }
+
+    .accent-box.top {
+        border-width: 1px 1px 0 1px;
+        position: absolute;
+        top: -6px;
+    }
+
+    .accent-box.bottom {
+        border-width: 0 1px 1px 1px;
+        position: absolute;
+        bottom: -6px;
     }
 
 }
