@@ -7,7 +7,7 @@
         top: 90px;
         left: 280px;
         width: @dialog-width;
-        height: 343px;
+        // height: 0px;
         background-color: @dv-c-background;
         border: @dv-c-body solid 2px;
         h2 {
@@ -17,11 +17,35 @@
             padding: 0 0 8px 10px;
         }
 
-        input[type="file"] {
-            display: none;
+        .select-file {
+            margin: 4px 0 20px 0;
+            p {
+                padding: 0 0 10px 0;
+            }
+            input[type="file"] {
+                display: none;
+            }
+            .card-upload-btn {
+                padding: 8px 12px;
+                .fa {
+                    padding-right: 8px;
+                }
+            }
         }
-        .card-upload-btn {
-            padding: 8px 12px;
+
+        .error {
+            display: block;
+            border: #cd2020 solid 2px;
+            .icon {
+                color: #cd2020;
+                float: left;
+                font-size: 30px;
+                padding: 4px 10px 4px 8px;
+            }
+            .content {
+                padding: 4px;
+                display: block
+            }
         }
 
     }
