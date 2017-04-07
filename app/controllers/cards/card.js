@@ -18,6 +18,10 @@ export default Ember.Controller.extend({
     {
         this.transitionToRoute('cards');
     },
+    navigateTo(card)
+    {
+        this.transitionToRoute('cards.card', card);
+    },
     clamp(val, min, max) {
         return Math.min(max, Math.max(min, val));
     },
@@ -51,12 +55,16 @@ export default Ember.Controller.extend({
         //  Swap min and max if reversed
         let pmin = model.get('statPDmgMin');
         let pmax = model.get('statPDmgMax');
-        model.set('statPDmgMin', Math.min(pmin, pmax));
-        model.set('statPDmgMax', Math.max(pmin, pmax));
+        if (pmax !== 0) {
+            model.set('statPDmgMin', Math.min(pmin, pmax));
+            model.set('statPDmgMax', Math.max(pmin, pmax));
+        }
         let mmin = model.get('statMDmgMin');
         let mmax = model.get('statMDmgMax');
-        model.set('statMDmgMin', Math.min(mmin, mmax));
-        model.set('statMDmgMax', Math.max(mmin, mmax));
+        if (mmax !== 0) {
+            model.set('statMDmgMin', Math.min(mmin, mmax));
+            model.set('statMDmgMax', Math.max(mmin, mmax));
+        }
     },
     actions:
     {
@@ -74,6 +82,16 @@ export default Ember.Controller.extend({
             this.validateAndFixModel(model);
             model.save();
             console.log("Changes saved");
+        },
+        duplicateCard() {
+            let model = this.get('model');
+            let thiss = this;
+            model.copy().then(function(copy) 
+            {
+                copy.set('characterName', copy.get('characterName') + " (Copy)");
+                copy.save();
+                thiss.navigateTo(copy);
+            });
         },
         unfocus()
         {

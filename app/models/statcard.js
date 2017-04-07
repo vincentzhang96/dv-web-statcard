@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import Copyable from 'ember-cli-copyable';
 
-export default DS.Model.extend({
+export default DS.Model.extend(Copyable, {
     characterName: DS.attr('string', { defaultValue: 'New character' }),
     remark: DS.attr('string', { defaultValue: 'CLICK TO EDIT THIS TEXT' }),
     characterClassId: DS.attr('string', { defaultValue: 'none' }),
