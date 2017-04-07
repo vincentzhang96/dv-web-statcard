@@ -44,10 +44,14 @@ export default Ember.Controller.extend({
         {
             let model = this.get('model');
             let expData = JSON.stringify(model);
+            //  Remove ID (can't delete on model since that breaks Ember Data)
+            model = JSON.parse(expData);
+            delete model.id;
+            expData = JSON.stringify(model);
             let dataBlob = new Blob([expData], {type: "application/json"});
             let dataUrl = URL.createObjectURL(dataBlob);
             let dummyLink = document.getElementById('export-dummy');
-            dummyLink.download = `card-${model.get('characterName')}.DVSTATCARD`;
+            dummyLink.download = `card-${model.characterName}.DVSTATCARD`;
             dummyLink.href = dataUrl;
             dummyLink.click();
         },
