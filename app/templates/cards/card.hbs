@@ -123,7 +123,28 @@
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.misc"}}</h3>
                 {{cap-percent-labels}}
-                {{cap-percent-stat label=(t "stats.fd") value=model.statFD onEdit="saveChange" valPercent1=(calc-fd model.statFD 80) valPercent2=(calc-fd model.statFD 90) valPercent3=(calc-fd model.statFD 93)}}
+                {{cap-percent-stat label=(t "stats.fd") 
+                    value=model.statFD onEdit="saveChange" 
+                    valPercent1=(calc-fd model.statFD 80 (if fdBonusOn (fd-bonus-helper model.characterClassId "amount"))) 
+                    valPercent2=(calc-fd model.statFD 90 (if fdBonusOn (fd-bonus-helper model.characterClassId "amount"))) 
+                    valPercent3=(calc-fd model.statFD 93 (if fdBonusOn (fd-bonus-helper model.characterClassId "amount")))
+                }}
+                {{#if (has-fd-bonus model.characterClassId)}}
+                    <div class="class-fd-bonus-toggle">
+                        <div class="tooltip">
+                                {{#if fdBonusOn}}
+                                    <button class="bonus-on" {{action "toggleFdBonus"}}>
+                                        X
+                                    </button>
+                                {{else}}
+                                    <button class="bonus-off" {{action "toggleFdBonus"}}>
+                                        +
+                                    </button>
+                                {{/if}}
+                            <span class="tooltext">{{t (fd-bonus-helper model.characterClassId "nameKey")}}</span>
+                        </div>
+                    </div>
+                {{/if}}
                 {{basic-stat label=(t "stats.hero") value=model.statHeroLevel onEdit="saveChange"}}
 
             </div>

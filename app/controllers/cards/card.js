@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    job: Ember.inject.service('job'),
     navigateIndex()
     {
         this.transitionToRoute('cards');
@@ -8,6 +9,14 @@ export default Ember.Controller.extend({
     navigateTo(card)
     {
         this.transitionToRoute('cards.card', card);
+    },
+    saveCard()
+    {
+        let model = this.get('model');
+        model.set('lastUpdated', new Date());
+        model.validateAndFixModel();
+        model.save();
+        console.log("Changes saved");
     },
     actions:
     {
@@ -20,11 +29,7 @@ export default Ember.Controller.extend({
         },
         saveChange()
         {
-            let model = this.get('model');
-            model.set('lastUpdated', new Date());
-            model.validateAndFixModel();
-            model.save();
-            console.log("Changes saved");
+            this.saveCard();
         },
         duplicateCard() {
             let model = this.get('model');
@@ -83,12 +88,22 @@ export default Ember.Controller.extend({
         },
         toggleEditElemental() {
             this.toggleProperty('showAllElements');
+        },
+        toggleFdBonus() {
+            this.toggleProperty('model.classFDBonus');
+            this.saveCard();
         }
     },
+    fdBonusOn: Ember.computed('model.{classFDBonus,characterClassId}', function()
+    {
+        let fdInfo = this.get('job').getFdBonus(this.get('model.characterClassId'));
+        return fdInfo && this.get('model.classFDBonus');
+    }),
     showAllElements: false,
     editingElemental: false,
     checkEle(type) {
-        return this.showAllElements || this.get(`model.stat${type}`) > 0 || ClassElemental[this.get('model.characterClassId')].indexOf(type.toLowerCase()) !== -1;
+        let clse = ClassElemental[this.get('model.characterClassId')] || 'none';
+        return this.showAllElements || this.get(`model.stat${type}`) > 0 || clse.indexOf(type.toLowerCase()) !== -1;
     },
     showFire: Ember.computed('showAllElements', 'model.{statFire,characterClassId}', function()
     {

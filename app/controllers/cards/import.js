@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    job: Ember.inject.service(),
     queryParams: ['dngsimport'],
     dngsimport: null,
     error: false,
@@ -21,17 +22,20 @@ export default Ember.Controller.extend({
         {
             try {
                 let decoded = atob(this.get('dngsimport'));
-                this.processCard(decoded, "ui.cards.import.error.dngsbad");
+                let hash = JSON.parse(decoded);
+                if (hash.classId) {
+                    hash.characterClassId = this.get('job').getCharacterClassById(hash.classId);
+                }
+                this.processCard(hash, "ui.cards.import.error.dngsbad");
             } catch (err) {
                 console.log(err);
                 this.onCardImportError(err, "ui.cards.import.error.dngsbad");
             }
         }
     },
-    processCard(jsonStr, key)
+    processCard(hash, key)
     {
         try {
-            let hash = JSON.parse(jsonStr);
             delete hash.id;
             let newCard = this.get('store').createRecord('statcard', hash);
             newCard.set('lastUpdated', new Date());
@@ -51,8 +55,14 @@ export default Ember.Controller.extend({
             let reader = new FileReader();
             reader.onload = (file) => 
             {
-                console.log(`Loading ${fi.name}`);
-                this.processCard(reader.result, "ui.cards.import.error.badcard");
+                try {
+                    console.log(`Loading ${fi.name}`);
+                    let hash = JSON.parse(reader.result);
+                    this.processCard(hash, "ui.cards.import.error.badcard");
+                } catch (err) {
+                    console.log(err);
+                    this.onCardImportError(err, "ui.cards.import.error.badcard");
+                }
             };
             reader.readAsText(fi);
         }

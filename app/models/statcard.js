@@ -46,6 +46,7 @@ export default DS.Model.extend(Copyable, {
     statLight: DS.attr('number', { defaultValue: 0 }),
     statDark: DS.attr('number', { defaultValue: 0 }),
     statFD: DS.attr('number', { defaultValue: 0 }),
+    classFDBonus: DS.attr('boolean', {defaultValue: false }),
     statHeroLevel: DS.attr('number', { defaultValue: 0 }),
     
     clamp(val, min, max) {
@@ -55,7 +56,7 @@ export default DS.Model.extend(Copyable, {
         let val = obj.get(field);
         obj.set(field, this.clamp(val, min, max));
     },
-    validateAndFixModel()
+    validateAndFixModel(clsidlist)
     {
         let model = this;
         this.clampProperty(model, 'level', MIN_LVL, MAX_LVL);
@@ -95,6 +96,18 @@ export default DS.Model.extend(Copyable, {
         let lastUp = this.get('lastUpdated');
         if (lastUp === null || lastUp === undefined || lastUp === "") {
             this.set('lastUpdated', new Date());
+        }
+        let clsid = this.get('characterClassId');
+        if (clsid === null || clsid === undefined) {
+            clsid = 'none';
+            this.set('characterClassId', clsid);
+        }
+        if (clsidlist) {
+            let clse = clsidlist[clsid];
+            if (clse === null || clse === undefined) {
+                clsid = 'none';
+                this.set('characterClassId', clsid);
+            }
         }
     }
 });

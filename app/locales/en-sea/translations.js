@@ -50,6 +50,13 @@ export default {
         "le_ma_lencea_machina": "Lencea/Machina",
         "none": "No class"
     },
+    "fdskills": {
+        "ma_patrona_defensio": "Class Mastery",
+        "wa_avenger_darkavenger": "Power Accelerator (A)",
+        "ar_hunter_silverhunter": "Enhanced Attack (A)",
+        "cl_heretic_archheretic": "Power Accelerator (A)",
+        "so_mara_blackmara": "Entropy (B)"
+    },
     "stats": 
     {
         "hp": "HP",
@@ -137,7 +144,7 @@ export default {
                 "importdngs": {
                     "first": "To import stats from a build on spacem's ",
                     "gearsim": "dngearsim",
-                    "last": ", click the \"Export to Divinitor Statcard\" button in the gearsim."
+                    "last": ", click the \"Export Divinitor Statcard\" button in the gearsim."
                 }
             }
         }

@@ -503,6 +503,25 @@
                     border-bottom: 1px @dv-c-foreground solid;
                 }
             }
+            .class-fd-bonus-toggle {
+                opacity: 0.0;
+                display: none;
+                transition: opacity 0.125s ease-in;
+                position: absolute;
+                top: 32px;
+                left: 140px;
+                button {
+                    height: 26px;
+                    width: 26px;
+                    .no-margin;
+                    .no-pad;
+                    
+                }
+                .tooltext {
+                    margin-bottom: 10px;
+                    white-space: nowrap;
+                }
+            }
             .branding {
                 width: 292px;
                 height: 31px;
@@ -528,6 +547,10 @@
 
             .element-selector {
                 opacity: 1.0;
+            }
+            .class-fd-bonus-toggle {
+                opacity: 1.0;
+                display: block;
             }
         }
     }
