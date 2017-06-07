@@ -52,7 +52,7 @@
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.general"}}</h3>
                 {{basic-stat label=(t "stats.hp") value=model.statHp onEdit="saveChange"}}
-                {{basic-stat label=(t "stats.mana") value=model.statMana onEdit="saveChange"}}
+                {{!--{{basic-stat label=(t "stats.mana") value=model.statMana onEdit="saveChange"}}--}}
             </div>
             <div class="divider"></div>
             <div class="statgroup">
@@ -66,9 +66,12 @@
             <div class="divider"></div>
             <div class="statgroup">
                 <h3>{{t "ui.cards.card.statgroup.damage"}}</h3>
+                {{# if isPhysical}}
                 {{range-stat label=(t "stats.pdmg") minValue=model.statPDmgMin maxValue=model.statPDmgMax onEdit="saveChange"}}
+                {{/if}}
+                {{# if isMagical}}
                 {{range-stat label=(t "stats.mdmg") minValue=model.statMDmgMin maxValue=model.statMDmgMax onEdit="saveChange"}}
-
+                {{/if}}
             </div>
             <div class="divider"></div>
             <div class="statgroup">
