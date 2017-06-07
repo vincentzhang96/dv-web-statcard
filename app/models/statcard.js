@@ -8,10 +8,10 @@ const MAX_HP_MP = 99999999;
 const MAX_STR_AGI_INT_VIT = 999999;
 const MAX_DMG = 9999999;
 const MAX_DEF = 999999;
-const MAX_CRIT = 999999;
-const MAX_CRITDMG = 999999;
+const MAX_CRIT = 9999999;
+const MAX_CRITDMG = 9999999;
 const MAX_FD = 99999;
-const MAX_HERO = 70;
+const MAX_HERO = 75;
 const MAX_ELEMENTAL = 300;
 
 export default DS.Model.extend(Copyable, {
