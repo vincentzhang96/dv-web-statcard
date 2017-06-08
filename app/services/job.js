@@ -39,34 +39,224 @@ export default Ember.Service.extend({
         "23": "wa_swordsman_gladiator",
         "24": "wa_swordsman_lunarknight",
     },
-    fdBonuses: {
-        ma_patrona_defensio: {
-            nameKey: "fdskills.ma_patrona_defensio",
-            amount: 40
-        },
-        wa_avenger_darkavenger: {
-            nameKey: "fdskills.wa_avenger_darkavenger",
-            amount: 10
-        },
-        ar_hunter_silverhunter: {
-            nameKey: "fdskills.ar_hunter_silverhunter",
-            amount: 10
-        },
-        cl_heretic_archheretic: {
-            nameKey: "fdskills.cl_heretic_archheretic",
-            amount: 10
-        },
-        so_mara_blackmara: {
-            nameKey: "fdskills.so_mara_blackmara",
-            amount: 10
-        }
-    },
     getCharacterClassById(id) {
         let ret = this.jobsById[id + ''];
         return ret || 'none';
     },
+    getJobIdByCharacterClass(className) {
+        for (let i in this.jobsById)
+        {
+            if (this.jobsById[i] === className)
+            {
+                return i;
+            }
+        }
+        return null;
+    },
     getFdBonus(clsid) {
-        let ret = this.fdBonuses[clsid];
-        return ret || null;
+        let cls = ClassInfo[clsid];
+        if (cls && cls.bonuses)
+        {
+            return cls.bonuses.fd || null;
+        }
+        return null;
+    },
+    getCriticalBonus(clsid) {
+        let cls = ClassInfo[clsid];
+        if (cls && cls.bonuses)
+        {
+            return cls.bonuses.crit || null;
+        }
+        return null;
+    },
+    getBonus(clsid, stat) {
+        let cls = ClassInfo[clsid];
+        if (cls && cls.bonuses)
+        {
+            return cls.bonuses[stat] || null;
+        }
+        return null;
     }
 });
+
+
+const ClassInfo = {
+        "ar_acrobat_tempest": {
+			eleType: "none",
+            dmgType: "physical"
+        },
+        "ar_acrobat_windwalker": {
+			eleType: "none",
+            dmgType: "physical"
+        },
+        "ar_hunter_silverhunter": {
+			eleType: "light",
+			dmgType: "magical",
+            bonuses: {
+                fd: {
+                    nameKey: "fdskills.ar_hunter_silverhunter",
+                    amount: 10
+                }
+            }
+		},
+        "ar_sharpshooter_sniper": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "ar_sharpshooter_warden": {
+			eleType: "none",
+			dmgType: "magical"
+		},
+        "as_shinobi_raven": {
+			eleType: "dark",
+			dmgType: "physical"
+		},
+        "as_shinobi_reaper": {
+			eleType: "fire",
+			dmgType: "physical"
+		},
+        "as_taoist_abysswalker": {
+			eleType: "dark",
+			dmgType: "physical"
+		},
+        "as_taoist_lightbringer": {
+			eleType: "light",
+			dmgType: "physical"
+		},
+        "cl_heretic_archheretic": {
+			eleType: "dark",
+			dmgType: "physical",
+            bonuses: {
+                fd: {
+                    nameKey: "fdskills.cl_heretic_archheretic",
+                    amount: 10
+                }
+            }
+		},
+        "cl_paladin_crusader": {
+			eleType: "light",
+			dmgType: "mixed"
+		},
+        "cl_paladin_guardian": {
+			eleType: "light",
+			dmgType: "physical"
+		},
+        "cl_priest_inquisitor": {
+			eleType: "light",
+			dmgType: "magical"
+		},
+        "cl_priest_saint": {
+			eleType: "light",
+			dmgType: "magical"
+		},
+        "ka_dancer_bladedancer": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "ka_dancer_spiritdancer": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "ka_screamer_darksummoner": {
+			eleType: "dark",
+			dmgType: "magical"
+		},
+        "ka_screamer_souleater": {
+			eleType: "dark",
+			dmgType: "magical"
+		},
+        "le_lancer_dragoon": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "le_lancer_valkyrie": {
+			eleType: "light",
+			dmgType: "magical"
+		},
+        "ma_patrona_defensio": {
+			eleType: "none",
+			dmgType: "physical",
+            bonuses: {
+                fd: {
+                    nameKey: "fdskills.ma_patrona_defensio",
+                    amount: 40
+                }
+            }
+		},
+        "ma_patrona_ruina": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "so_elementalist_icewitch": {
+			eleType: "ice",
+			dmgType: "magical"
+		},
+        "so_elementalist_pyromancer": {
+			eleType: "fire",
+			dmgType: "magical"
+		},
+        "so_mystic_chaosmage": {
+			eleType: "dark",
+			dmgType: "magical"
+		},
+        "so_mystic_warmage": {
+			eleType: "none",
+			dmgType: "magical"
+		},
+        "so_mara_blackmara": {
+			eleType: "dark",
+			dmgType: "magical",
+            bonuses: {
+                fd: {
+                    nameKey: "fdskills.so_mara_blackmara",
+                    amount: 10
+                }
+            }
+		},
+        "ti_alchemist_adept": {
+			eleType: "fire ice",
+			dmgType: "magical"
+		},
+        "ti_alchemist_physician": {
+			eleType: "dark",
+			dmgType: "magical"
+		},
+        "ti_engineer_gearmaster": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "ti_engineer_shootingstar": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "wa_avenger_darkavenger": {
+			eleType: "fire",
+			dmgType: "physical",
+            bonuses: {                
+                fd: {
+                    nameKey: "fdskills.wa_avenger_darkavenger",
+                    amount: 10
+                }
+            }
+		},
+        "wa_mercenary_barbarian": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "wa_mercenary_destroyer": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "wa_swordsman_gladiator": {
+			eleType: "none",
+			dmgType: "physical"
+		},
+        "wa_swordsman_lunarknight": {
+			eleType: "none",
+			dmgType: "magical"
+		},
+        "none": {
+            eleType: "unset",
+            dmgType: "mixed"
+        }
+};

@@ -128,11 +128,11 @@
                 {{cap-percent-labels}}
                 {{cap-percent-stat label=(t "stats.fd") 
                     value=model.statFD onEdit="saveChange" 
-                    valPercent1=(calc-fd model.statFD 90 (if fdBonusOn (fd-bonus-helper model.characterClassId "amount"))) 
-                    valPercent2=(calc-fd model.statFD 93 (if fdBonusOn (fd-bonus-helper model.characterClassId "amount"))) 
-                    valPercent3=(calc-fd model.statFD 95 (if fdBonusOn (fd-bonus-helper model.characterClassId "amount")))
+                    valPercent1=(calc-fd model.statFD 90 (if fdBonusOn (bonus-helper model.characterClassId "fd" "amount"))) 
+                    valPercent2=(calc-fd model.statFD 93 (if fdBonusOn (bonus-helper model.characterClassId "fd" "amount"))) 
+                    valPercent3=(calc-fd model.statFD 95 (if fdBonusOn (bonus-helper model.characterClassId "fd" "amount")))
                 }}
-                {{#if (has-fd-bonus model.characterClassId)}}
+                {{#if (has-bonus model.characterClassId "fd")}}
                     <div class="class-fd-bonus-toggle">
                         <div class="tooltip">
                                 {{#if fdBonusOn}}
@@ -144,7 +144,7 @@
                                         +
                                     </button>
                                 {{/if}}
-                            <span class="tooltext">{{t (fd-bonus-helper model.characterClassId "nameKey")}}</span>
+                            <span class="tooltext">{{t (bonus-helper model.characterClassId "fd" "nameKey")}}</span>
                         </div>
                     </div>
                 {{/if}}
