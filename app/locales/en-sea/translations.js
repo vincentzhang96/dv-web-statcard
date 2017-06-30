@@ -52,6 +52,7 @@ export default {
     },
     "fdskills": {
         "ma_patrona_defensio": "Class Mastery",
+        "ma_patrona_ruina": "Class Mastery",
         "wa_avenger_darkavenger": "Power Accelerator (A)",
         "ar_hunter_silverhunter": "Enhanced Attack (A)",
         "cl_heretic_archheretic": "Power Accelerator (A)",

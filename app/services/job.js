@@ -185,7 +185,13 @@ const ClassInfo = {
 		},
         "ma_patrona_ruina": {
 			eleType: "none",
-			dmgType: "physical"
+			dmgType: "physical",
+            bonuses: {
+                fd: {
+                    nameKey: "fdskills.ma_patrona_ruina",
+                    amount: 50
+                }
+            }
 		},
         "so_elementalist_icewitch": {
 			eleType: "ice",
