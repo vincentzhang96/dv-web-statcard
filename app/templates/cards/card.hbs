@@ -149,7 +149,11 @@
                     </div>
                 {{/if}}
                 {{basic-stat label=(t "stats.hero") value=model.statHeroLevel onEdit="saveChange"}}
-
+                <div class="stat-entry basic tooltip">
+                    <div class="label">{{t "stats.combined"}}</div>
+                    <div class="stat-fixed-value">{{basic-stat-value cDmg "K"}}</div>
+                    <span class="tooltext wide push-up">{{t "stats.tooltip.combined"}}</span>
+                </div>
             </div>
         </div>
         <img class="branding" src="https://static.divinitor.com/site/common/img/dv-web-statcard-brand.png" />

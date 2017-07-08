@@ -76,6 +76,10 @@ export default Ember.Service.extend({
             return cls.bonuses[stat] || null;
         }
         return null;
+    },
+    getClassInfoByKey(clsid)
+    {
+        return ClassInfo[clsid];
     }
 });
 

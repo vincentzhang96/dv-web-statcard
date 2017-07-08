@@ -17,7 +17,7 @@
     transition: opacity 0.125s ease-in;
     text-transform: uppercase;
     font-size: 12px;
-    font: @dv-f-lato;
+    font-family: @dv-f-lato;
     letter-spacing: 0.1em;
 
     bottom: 100%;
@@ -25,6 +25,14 @@
     transform: translate(-50%, 0);
 
     box-shadow: 4px 4px 4px rgba(0.0, 0.0, 0.0, 0.75);
+
+    &.wide {
+        width: 300px;
+    }
+
+    &.push-up {
+        transform: translate(-50%, -5px);
+    }
 
     &::after {
         content: " ";

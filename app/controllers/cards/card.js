@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     job: Ember.inject.service('job'),
+    statConversion: Ember.inject.service('stat-conversion'),
     navigateIndex()
     {
         this.transitionToRoute('cards');
@@ -161,6 +162,48 @@ export default Ember.Controller.extend({
     {
         let dmg = ClassInfo[this.get('model.characterClassId')].dmgType;
         return dmg === 'mixed' || dmg === 'magical';
+    }),
+    cDmg: Ember.computed('fdBonusOn', 'model.{characterClassId,statFire,statIce,statLight,statDark,statFD,statMDmgMax,statMDmgMin,statPDmgMax,statPDmgMin,statCritDmg', function()
+    {
+        let model = this.get('model');
+        let cls = this.get('job').getClassInfoByKey(model.get('characterClassId'));
+
+        if (cls === undefined)
+        {
+            console.log("Class for " + model.get('characterClassId') + " not found");
+            return 0;
+        }
+
+        let dmg = 0;
+        if (cls.dmgType === "magical" || cls.dmgType === "mixed")
+        {
+            dmg += (+model.get('statMDmgMin') + +model.get('statMDmgMax')) / 2;
+        }
+        if (cls.dmgType === "physical" || cls.dmgType === "mixed")
+        {
+            dmg += (+model.get('statPDmgMin') + +model.get('statPDmgMax')) / 2;
+        }
+
+        //  Get max elemental
+        let ele = Math.max(model.get('statFire'), model.get('statIce'), model.get('statLight'), model.get('statDark'));
+        
+        dmg *= (1 + ele);
+
+        let fd = model.get('statFD');
+        fd = this.get('statConversion').getFinalDamagePercent(fd, 93).result;
+        if (this.get('fdBonusOn'))
+        {
+            fd += this.get('job').getBonus(model.get('characterClassId'), "fd").amount / 100;
+        }
+
+        dmg *= (1 + fd);
+
+        let critdmg = model.get('statCritDmg');
+        critdmg = this.get('statConversion').getCritDamagePercent(critdmg, 93).result;
+
+        dmg *= critdmg;
+
+        return Math.floor(dmg / 1000) + "K";
     }),
 });
 

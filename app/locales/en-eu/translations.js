@@ -77,7 +77,8 @@ export default {
         "light": "Light",
         "dark": "Dark",
         "fd": "FD",
-        "hero": "Hero Lvl"
+        "hero": "Hero Lvl",
+        "combined": "CDMG"
     },
     "ui":
     {
