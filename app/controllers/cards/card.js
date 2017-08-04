@@ -63,6 +63,12 @@ export default Ember.Controller.extend({
         },
         snapshot()
         {
+            if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+                ga('send', 'event', 'Image', 'Export', 'DeniedBrowser', 'IE/Edge');
+                alert("This feature is not supported by Internet Explorer or Edge. Please use a real browser.");
+                return;
+            }
+
             //  Save current edit status
             let old = this.get('showAllElements');
             let tthis = this;
@@ -163,7 +169,7 @@ export default Ember.Controller.extend({
         let dmg = ClassInfo[this.get('model.characterClassId')].dmgType;
         return dmg === 'mixed' || dmg === 'magical';
     }),
-    cDmg: Ember.computed('fdBonusOn', 'model.{characterClassId,statFire,statIce,statLight,statDark,statFD,statMDmgMax,statMDmgMin,statPDmgMax,statPDmgMin,statCritDmg', function()
+    cDmg: Ember.computed('fdBonusOn', 'model.{characterClassId,statFire,statIce,statLight,statDark,statFD,statMDmgMax,statMDmgMin,statPDmgMax,statPDmgMin,statCritDmg}', function()
     {
         let model = this.get('model');
         let cls = this.get('job').getClassInfoByKey(model.get('characterClassId'));
