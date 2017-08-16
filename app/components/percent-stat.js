@@ -29,6 +29,9 @@ export default Ember.Component.extend({
             if (this.get('inputVisible')) {
                 this.doUnfocus();
             }
+        },
+        focusMe() {
+            this.activate();
         }
     }
 });

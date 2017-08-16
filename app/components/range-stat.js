@@ -38,6 +38,12 @@ export default Ember.Component.extend({
             if (this.get('inputVisibleMax') || this.get('inputVisibleMin')) {
                 this.doUnfocus();
             }
+        },
+        focusMeMax() {
+            this.activateMax();
+        },
+        focusMeMin() {
+            this.activateMin();
         }
     }
 

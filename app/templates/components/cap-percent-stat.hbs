@@ -4,6 +4,7 @@
     {{input class="stat-value edit" value=(mut value) min="0" type="number" inputmode="numeric" enter="unfocus" focus-out="focusOut"}}
     {{else}}
     <div class="stat-value" {{action activate}}>{{basic-stat-value value}}</div>
+    {{input class="tabfix" type="text" focus-in="focusMe"}}
     {{/if}}
     <div class="stat-percents">
         {{stat-percent value=valPercent1}}
