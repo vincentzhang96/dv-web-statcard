@@ -20,6 +20,7 @@ export default Ember.Service.extend({
         "59": "ka_dancer_spiritdancer",
         "55": "ka_screamer_darksummoner",
         "56": "ka_screamer_souleater",
+        "89": "ka_oracle_oracleelder",
         "73": "le_lancer_dragoon",
         "74": "le_lancer_valkyrie",
         "78": "ma_patrona_defensio",
@@ -33,6 +34,7 @@ export default Ember.Service.extend({
         "51": "ti_alchemist_physician",
         "48": "ti_engineer_gearmaster",
         "47": "ti_engineer_shootingstar",
+        "87": "ti_mechanic_raymechanic",
         "76": "wa_avenger_darkavenger",
         "25": "wa_mercenary_barbarian",
         "26": "wa_mercenary_destroyer",
@@ -82,7 +84,6 @@ export default Ember.Service.extend({
         return ClassInfo[clsid];
     }
 });
-
 
 const ClassInfo = {
         "ar_acrobat_tempest": {
@@ -168,7 +169,11 @@ const ClassInfo = {
         "ka_screamer_souleater": {
 			eleType: "dark",
 			dmgType: "magical"
-		},
+        },
+        "ka_oracle_oracleelder": {
+            eleType: "light",
+            dmgType: "physical"
+        },
         "le_lancer_dragoon": {
 			eleType: "none",
 			dmgType: "physical"
@@ -238,7 +243,11 @@ const ClassInfo = {
         "ti_engineer_shootingstar": {
 			eleType: "none",
 			dmgType: "physical"
-		},
+        },
+        "ti_mechanic_raymechanic": {
+            eleType: "none",
+            dmgType: "physical"
+        },
         "wa_avenger_darkavenger": {
 			eleType: "fire",
 			dmgType: "physical",
