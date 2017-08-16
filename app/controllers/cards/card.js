@@ -109,7 +109,7 @@ export default Ember.Controller.extend({
     showAllElements: false,
     editingElemental: false,
     checkEle(type) {
-        let clse = ClassInfo[this.get('model.characterClassId')].eleType || 'none';
+        let clse = this.get('job').getClassInfoByKey([this.get('model.characterClassId')]).eleType || 'none';
         return this.showAllElements || this.get(`model.stat${type}`) > 0 || clse.indexOf(type.toLowerCase()) !== -1;
     },
     showFire: Ember.computed('showAllElements', 'model.{statFire,characterClassId}', function()
@@ -146,27 +146,27 @@ export default Ember.Controller.extend({
     }),
     isNonElemental: Ember.computed('isElemental', 'model.characterClassId', function()
     {
-        let ele = ClassInfo[this.get('model.characterClassId')].eleType;
+        let ele = this.get('job').getClassInfoByKey([this.get('model.characterClassId')]).eleType;
         return (ele === 'none' || ele === 'unset') && !this.get('isElemental');
     }),
     isConverted: Ember.computed('isElemental', 'model.characterClassId', function()
     {
-        let ele = ClassInfo[this.get('model.characterClassId')].eleType;
+        let ele = this.get('job').getClassInfoByKey([this.get('model.characterClassId')]).eleType;
         return ele === 'none' && this.get('isElemental') && ele !== 'unset';
     }),
     isInnate: Ember.computed('isElemental', 'model.characterClassId', function()
     {
-        let ele = ClassInfo[this.get('model.characterClassId')].eleType;
+        let ele = this.get('job').getClassInfoByKey([this.get('model.characterClassId')]).eleType;
         return ele !== 'none' && ele !== 'unset';
     }),
     isPhysical: Ember.computed('model.characterClassId', function()
     {
-        let dmg = ClassInfo[this.get('model.characterClassId')].dmgType;
+        let dmg = this.get('job').getClassInfoByKey([this.get('model.characterClassId')]).dmgType;
         return dmg === 'mixed' || dmg === 'physical';
     }),
     isMagical: Ember.computed('model.characterClassId', function()
     {
-        let dmg = ClassInfo[this.get('model.characterClassId')].dmgType;
+        let dmg = this.get('job').getClassInfoByKey([this.get('model.characterClassId')]).dmgType;
         return dmg === 'mixed' || dmg === 'magical';
     }),
     cDmg: Ember.computed('fdBonusOn', 'model.{characterClassId,statFire,statIce,statLight,statDark,statFD,statMDmgMax,statMDmgMin,statPDmgMax,statPDmgMin,statCritDmg}', function()
@@ -212,157 +212,3 @@ export default Ember.Controller.extend({
         return Math.floor(dmg / 1000) + "K";
     }),
 });
-
-
-const ClassInfo = {
-        "ar_acrobat_tempest": 
-        {
-			"eleType": "none",
-            "dmgType": "physical"
-        },
-        "ar_acrobat_windwalker": 
-        {
-			"eleType": "none",
-            "dmgType": "physical"
-        },
-        "ar_hunter_silverhunter": {
-			"eleType": "light",
-			"dmgType": "magical"
-		},
-        "ar_sharpshooter_sniper": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "ar_sharpshooter_warden": {
-			"eleType": "none",
-			"dmgType": "magical"
-		},
-        "as_shinobi_raven": {
-			"eleType": "dark",
-			"dmgType": "physical"
-		},
-        "as_shinobi_reaper": {
-			"eleType": "fire",
-			"dmgType": "physical"
-		},
-        "as_taoist_abysswalker": {
-			"eleType": "dark",
-			"dmgType": "physical"
-		},
-        "as_taoist_lightbringer": {
-			"eleType": "light",
-			"dmgType": "physical"
-		},
-        "cl_heretic_archheretic": {
-			"eleType": "dark",
-			"dmgType": "physical"
-		},
-        "cl_paladin_crusader": {
-			"eleType": "light",
-			"dmgType": "mixed"
-		},
-        "cl_paladin_guardian": {
-			"eleType": "light",
-			"dmgType": "physical"
-		},
-        "cl_priest_inquisitor": {
-			"eleType": "light",
-			"dmgType": "magical"
-		},
-        "cl_priest_saint": {
-			"eleType": "light",
-			"dmgType": "magical"
-		},
-        "ka_dancer_bladedancer": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "ka_dancer_spiritdancer": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "ka_screamer_darksummoner": {
-			"eleType": "dark",
-			"dmgType": "magical"
-		},
-        "ka_screamer_souleater": {
-			"eleType": "dark",
-			"dmgType": "magical"
-		},
-        "le_lancer_dragoon": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "le_lancer_valkyrie": {
-			"eleType": "light",
-			"dmgType": "magical"
-		},
-        "ma_patrona_defensio": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "ma_patrona_ruina": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "so_elementalist_icewitch": {
-			"eleType": "ice",
-			"dmgType": "magical"
-		},
-        "so_elementalist_pyromancer": {
-			"eleType": "fire",
-			"dmgType": "magical"
-		},
-        "so_mystic_chaosmage": {
-			"eleType": "dark",
-			"dmgType": "magical"
-		},
-        "so_mystic_warmage": {
-			"eleType": "none",
-			"dmgType": "magical"
-		},
-        "so_mara_blackmara": {
-			"eleType": "dark",
-			"dmgType": "magical"
-		},
-        "ti_alchemist_adept": {
-			"eleType": "fire ice",
-			"dmgType": "magical"
-		},
-        "ti_alchemist_physician": {
-			"eleType": "dark",
-			"dmgType": "magical"
-		},
-        "ti_engineer_gearmaster": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "ti_engineer_shootingstar": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "wa_avenger_darkavenger": {
-			"eleType": "fire",
-			"dmgType": "physical"
-		},
-        "wa_mercenary_barbarian": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "wa_mercenary_destroyer": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "wa_swordsman_gladiator": {
-			"eleType": "none",
-			"dmgType": "physical"
-		},
-        "wa_swordsman_lunarknight": {
-			"eleType": "none",
-			"dmgType": "magical"
-		},
-        "none": {
-            "eleType": "unset",
-            "dmgType": "mixed"
-        }
-};
