@@ -78,7 +78,11 @@ export default {
         "dark": "Dark",
         "fd": "FD",
         "hero": "Hero Lvl",
-        "combined": "CDMG"
+        "combined": "CDMG",
+        "tooltip":
+        {
+            "combined": "The average of your damage stat(s) with damage multipliers (ele, FD, critdmg) applied"
+        }
     },
 
     "ui":
