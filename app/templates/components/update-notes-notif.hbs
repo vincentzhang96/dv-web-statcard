@@ -1,0 +1,14 @@
+{{#if display}}
+<div class="update-notif">
+
+    <div class="content">
+        <h1>Update Notes - {{info.title}}</h1>
+
+        <p>{{info.message}}</p>
+    </div>
+
+    <div class="timestamp">{{moment-format info.timestamp 'MM/DD/YYYY HH:mm (Z)'}}</div>
+    <div class="version">v{{info.version}}</div>
+    <button class="dismiss" {{action "dismiss"}}><i class="fa fa-remove"></i></button>
+</div>
+{{/if}}

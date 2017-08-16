@@ -1,0 +1,65 @@
+.update-notif {
+    background-color: @dv-c-background;
+    background-color: rgba(18, 19, 20, 0.9);
+    border-color: @dv-c-body;
+    border-style: solid;
+    border-width: 2px 0 0 0;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 4em;
+
+    &.hidden {
+        display: none;
+    }
+
+    h1 {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .content {
+        margin: 0.667em 14em 0.5em 4em;
+    }
+
+    .timestamp {
+        position: absolute;
+
+        right: 0.667em;
+        top: 0.667em;
+
+        color: @dv-c-idle;
+    }
+
+    .version {
+        position: absolute;
+
+        right: 0.667em;
+        top: 1.8em;
+
+        color: @dv-c-idle;
+    }
+
+    .dismiss {
+
+        position: absolute;
+
+        left: 0.667em;
+        top: 0.667em;
+
+        border: none;
+        background: none;
+        width: 2em;
+        height: 2em;
+
+        &:hover {
+            background: @dv-c-foreground;
+        }
+    }
+}
