@@ -60,7 +60,8 @@ const GameClasses = [
             "ti_engineer_gearmaster",
             "ti_engineer_shootingstar",
             "ti_alchemist_adept",
-            "ti_alchemist_physician"
+            "ti_alchemist_physician",
+            "ti_mechanic_raymechanic"
         ]
     },
     {
@@ -69,7 +70,8 @@ const GameClasses = [
             "ka_screamer_darksummoner",
             "ka_screamer_souleater",
             "ka_dancer_bladedancer",
-            "ka_dancer_spiritdancer"
+            "ka_dancer_spiritdancer",
+            "ka_oracle_oracleelder"
         ]
     },
     {
