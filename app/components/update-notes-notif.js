@@ -20,10 +20,6 @@ export default Ember.Component.extend({
         }
     },
 
-    info() {
-        return this.get("updatesNotif").getLatestUpdate();
-    },
-
     actions: {
         dismiss() {
             this.get("updatesNotif").markAsRead();
