@@ -61,6 +61,10 @@ export default Ember.Controller.extend({
             dummyLink.href = dataUrl;
             dummyLink.click();
         },
+        closeExport() {
+            this.set('iframeUrl', '');
+            this.set('showExport', false);
+        },
         snapshot()
         {
             if (document.documentMode || /Edge/.test(navigator.userAgent)) {
@@ -76,7 +80,7 @@ export default Ember.Controller.extend({
             this.set('showAllElements', false);
             //  Render after UI updates
             Ember.run.scheduleOnce('afterRender', this, function() {
-                let newWin = window.open('data:,Generating%20card%20image%2C%20please%20wait.%20This%20can%20take%20up%20to%2030%20seconds%20on%20slow%20machines.');
+                this.set('showExport', true);
                 html2canvas(document.getElementById('stat-card-active'), {
                     width: 800,
                     height: 500,
@@ -85,13 +89,20 @@ export default Ember.Controller.extend({
                     useCORS: true,
                     onrendered: function(canvas) {
                         let img = canvas.toDataURL("image/png");
-                        newWin.location = img;
+                        tthis.set('iframeUrl', img);
                         //  Restore
                         tthis.set('showAllElements', old);
                     }
                 });
             });
             
+        },
+        exportSnapshot()
+        {
+            let dummyLink = document.getElementById('export-dummy');
+            dummyLink.download = `card-${this.get('model').get('characterName')}.png`;
+            dummyLink.href = this.get('iframeUrl');
+            dummyLink.click();
         },
         toggleEditElemental() {
             this.toggleProperty('showAllElements');
@@ -106,6 +117,12 @@ export default Ember.Controller.extend({
         let fdInfo = this.get('job').getFdBonus(this.get('model.characterClassId'));
         return fdInfo && this.get('model.classFDBonus');
     }),
+    showExport: false,
+    showLoader: Ember.computed('iframeUrl', function()
+    {
+        return this.get('iframeUrl').length == 0;
+    }),
+    iframeUrl: "",
     showAllElements: false,
     editingElemental: false,
     checkEle(type) {

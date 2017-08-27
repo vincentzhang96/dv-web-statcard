@@ -164,4 +164,32 @@
 <div class="hidden">
     <a id="export-dummy"></a>
 </div>
+
+{{#if showExport}}
+<div class="export-iframe">
+    <div class="container">
+        <div class="accent-box top"></div>
+        <div class="accent-box bottom"></div>
+        <h2><i class="fa fa-camera"></i> {{t "ui.cards.card.export.title"}}</h2>
+        <div class="close-export" {{action "closeExport"}}><i class="fa fa-close"></i></div>
+        <p class="help">{{t "ui.cards.card.export.help"}}</p>
+        {{#if showLoader}}
+        <div class="loader-box">
+            <div class="loader"></div>
+        </div>
+        {{else}}
+            <img id="export" src={{ iframeUrl }}>
+            
+            <div class="button-hbox">
+                <button class="save-action" {{action "exportSnapshot"}}>
+                    <i class="fa fa-save"></i>{{t "ui.cards.card.export.save"}}
+                </button>
+                <button class="close-action" {{action "closeExport"}}>
+                    <i class="fa fa-close"></i>{{t "ui.cards.card.export.close"}}
+                </button>
+            </div>
+        {{/if}}
+    </div>
+</div>
+{{/if}}
 {{outlet}}

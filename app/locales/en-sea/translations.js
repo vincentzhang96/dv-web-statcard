@@ -139,7 +139,13 @@ export default {
                     "none": "Non-elemental",
                     "conversion": "Converted",
                     "innate": "Innate"
-                }
+                },
+                "export": {
+                    "title": "Export Statcard",
+                    "help": "Right click the card image below and select Copy Image for sharing",
+                    "save": "Save Card Image",
+                    "close": "Close",
+                },
             },
             "import": {
                 "title": "Import Statcard",
