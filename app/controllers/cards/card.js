@@ -120,7 +120,7 @@ export default Ember.Controller.extend({
     showExport: false,
     showLoader: Ember.computed('iframeUrl', function()
     {
-        return this.get('iframeUrl').length == 0;
+        return this.get('iframeUrl').length === 0;
     }),
     iframeUrl: "",
     showAllElements: false,
@@ -186,9 +186,10 @@ export default Ember.Controller.extend({
         let dmg = this.get('job').getClassInfoByKey([this.get('model.characterClassId')]).dmgType;
         return dmg === 'mixed' || dmg === 'magical';
     }),
-    cDmg: Ember.computed('fdBonusOn', 'model.{characterClassId,statFire,statIce,statLight,statDark,statFD,statMDmgMax,statMDmgMin,statPDmgMax,statPDmgMin,statCritDmg}', function()
+    cDmg: Ember.computed('fdBonusOn', 'model.{level,characterClassId,statFire,statIce,statLight,statDark,statFD,statMDmgMax,statMDmgMin,statPDmgMax,statPDmgMin,statCritDmg}', function()
     {
         let model = this.get('model');
+        let level = model.get('level');
         let cls = this.get('job').getClassInfoByKey(model.get('characterClassId'));
 
         if (cls === undefined)
@@ -200,20 +201,20 @@ export default Ember.Controller.extend({
         let dmg = 0;
         if (cls.dmgType === "magical" || cls.dmgType === "mixed")
         {
-            dmg += (+model.get('statMDmgMin') + +model.get('statMDmgMax')) / 2;
+            dmg += ((Number(model.get('statMDmgMin')) + Number(model.get('statMDmgMax'))) / 2);
         }
         if (cls.dmgType === "physical" || cls.dmgType === "mixed")
         {
-            dmg += (+model.get('statPDmgMin') + +model.get('statPDmgMax')) / 2;
+            dmg += ((Number(model.get('statPDmgMin')) + Number(model.get('statPDmgMax'))) / 2);
         }
 
         //  Get max elemental
         let ele = Math.max(model.get('statFire'), model.get('statIce'), model.get('statLight'), model.get('statDark'));
         
-        dmg *= (1 + ele);
+        dmg *= (1 + ele / 100);
 
-        let fd = model.get('statFD');
-        fd = this.get('statConversion').getFinalDamagePercent(fd, 93).result;
+        let fd = Number(model.get('statFD'));
+        fd = this.get('statConversion').getFinalDamagePercent(fd, level).result;
         if (this.get('fdBonusOn'))
         {
             fd += this.get('job').getBonus(model.get('characterClassId'), "fd").amount / 100;
@@ -221,11 +222,14 @@ export default Ember.Controller.extend({
 
         dmg *= (1 + fd);
 
-        let critdmg = model.get('statCritDmg');
-        critdmg = this.get('statConversion').getCritDamagePercent(critdmg, 93).result;
+        let critdmg = Number(model.get('statCritDmg'));
+        critdmg = this.get('statConversion').getCritDamagePercent(critdmg, level).result;
 
-        dmg *= critdmg;
+        let critchance = Number(model.get('statCrit'));
+        critchance = this.get('statConversion').getCriticalPercent(critchance, level).result;
 
-        return Math.floor(dmg / 1000) + "K";
+        dmg = (dmg * critdmg * critchance) + (dmg * (1 - critchance));
+
+        return Math.floor(dmg / 100) / 10.0 + "K";
     }),
 });

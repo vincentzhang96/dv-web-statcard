@@ -83,7 +83,7 @@ export default {
         "combined": "CDMG",
         "tooltip":
         {
-            "combined": "The average of your damage stat(s) with damage multipliers (ele, FD, critdmg) applied"
+            "combined": "The average of your damage stat(s) with damage multipliers (ele, FD, crit, critdmg) applied for your level"
         }
     },
 

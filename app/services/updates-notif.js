@@ -25,6 +25,13 @@ export default Ember.Service.extend({
 
 const UpdateInfo = [
     {
+        id: 3,
+        title: "CDMG calculations",
+        message: "CDMG calculations have been updated to use your character's level and to take into account critical chance. Also resolved an incorrect calculation issue relating to how elemental attack was handled.",
+        timestamp: "2017-09-22T17:53:24Z",
+        version: "0.9.8-LAB.201709221753"
+    },
+    {
         id: 2,
         title: "Card Image Export Fix & Upgrades",
         message: "The card image export feature has been upgraded due to Chrome removing a feature that the old system relied on. Internet Explorer and Edge are still not supported since they don't support the features the image exporter relies on.",
