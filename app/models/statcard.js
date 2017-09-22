@@ -18,7 +18,7 @@ export default DS.Model.extend(Copyable, {
     characterName: DS.attr('string', { defaultValue: 'New character' }),
     remark: DS.attr('string', { defaultValue: 'CLICK TO EDIT THIS TEXT' }),
     characterClassId: DS.attr('string', { defaultValue: 'none' }),
-    level: DS.attr('number', { defaultValue: 93 }),
+    level: DS.attr('number', { defaultValue: 95 }),
     lastUpdated: DS.attr('date', 
     {
         defaultValue()
