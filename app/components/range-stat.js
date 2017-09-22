@@ -16,16 +16,24 @@ export default Ember.Component.extend({
     {
         this.set('showInputMax', true);
         Ember.run.scheduleOnce('afterRender', this, function() {
-            $('.stat-value.edit.max').focus();
+            let edit = $('.stat-value.edit.max');
+            edit.focus();
             this.set('inputVisibleMax', true);
+            if (edit.val() == "0") {
+                window.setTimeout(() => edit.val(""));
+            }
         });
     },
     activateMin()
     {
         this.set('showInputMin', true);
         Ember.run.scheduleOnce('afterRender', this, function() {
-            $('.stat-value.edit.min').focus();
+            let edit = $('.stat-value.edit.min');
+            edit.focus();
             this.set('inputVisibleMin', true);
+            if (edit.val() == "0") {
+                window.setTimeout(() => edit.val(""));
+            }
         });
     },
     actions: {

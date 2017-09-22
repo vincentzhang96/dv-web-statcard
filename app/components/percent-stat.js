@@ -14,8 +14,12 @@ export default Ember.Component.extend({
         if (this.get('editable')) {
             this.set('showInput', true);
             Ember.run.scheduleOnce('afterRender', this, function() {
-                $('.stat-value.edit').focus();
+                let edit = $('.stat-value.edit');
+                edit.focus();
                 this.set('inputVisible', true);
+                if (edit.val() == "0") {
+                    window.setTimeout(() => edit.val(""));
+                }
             });
         }
     },
