@@ -13,6 +13,7 @@ export default {
         "as_shinobi_reaper": "Reaper",
         "as_taoist_abysswalker": "Abyss Walker",
         "as_taoist_lightbringer": "Light Bringer",
+        "as_phantom_bleedphantom": "Bleed Phantom",
         "cl_cleric": "Cleric",
         "cl_heretic_archheretic": "Arch Heretic",
         "cl_paladin_crusader": "Crusader",
@@ -80,7 +81,7 @@ export default {
         "dark": "Dark",
         "fd": "FD",
         "hero": "Hero Lvl",
-        "combined": "CDMG",
+        "combined": "TDMG",
         "tooltip":
         {
             "combined": "The average of your damage stat(s) with damage multipliers (ele, FD, crit, critdmg) applied for your level"

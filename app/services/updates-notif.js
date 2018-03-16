@@ -25,6 +25,13 @@ export default Ember.Service.extend({
 
 const UpdateInfo = [
     {
+        id: 4,
+        title: "Bleed Phantom",
+        message: "Added Bleed Phantom. Also renamed CDMG to TDMG, as in Total Damage. Formula unchanged.",
+        timestamp: "2018-03-15T23:56:24Z",
+        version: "0.9.8-LAB.201803152356"
+    },
+    {
         id: 3,
         title: "CDMG calculations",
         message: "CDMG calculations have been updated to use your character's level and to take into account critical chance. Also resolved an incorrect calculation issue relating to how elemental attack was handled.",

@@ -11,6 +11,7 @@ export default Ember.Service.extend({
         "63": "as_shinobi_reaper",
         "69": "as_taoist_abysswalker",
         "68": "as_taoist_lightbringer",
+        "91": "as_phantom_bleedphantom",
         "83": "cl_heretic_archheretic",
         "42": "cl_paladin_crusader",
         "41": "cl_paladin_guardian",
@@ -127,7 +128,11 @@ const ClassInfo = {
         "as_taoist_lightbringer": {
 			eleType: "light",
 			dmgType: "physical"
-		},
+        },
+        "as_phantom_bleedphantom": {
+            eleType: "dark",
+            dmgType: "physical"
+        },
         "cl_heretic_archheretic": {
 			eleType: "dark",
 			dmgType: "physical",

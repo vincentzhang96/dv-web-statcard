@@ -80,7 +80,8 @@ const GameClasses = [
             "as_shinobi_raven",
             "as_shinobi_reaper",
             "as_taoist_abysswalker",
-            "as_taoist_lightbringer"
+            "as_taoist_lightbringer",
+            "as_phantom_bleedphantom"
         ]
     },
     {
